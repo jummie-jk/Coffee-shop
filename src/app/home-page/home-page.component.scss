@@ -1,0 +1,62 @@
+.home-page {
+  background-image: url("../../assets/coffee_image.png");
+  height: 100vh;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  .home-page-sub {
+    padding: 5rem;
+    color: white;
+
+    .coffee-welcome-text {
+      font-size: 22px;
+    }
+
+    .coffee-text-sub {
+      font-size: 20px;
+      padding-bottom: 2rem;
+    }
+
+    .coffee-text {
+      font-size: 13.75rem;
+      font-family: "Clicker Script", cursive;
+    }
+
+    .typewriter {
+      overflow: hidden;
+    //   border-right: .15em solid orange;
+      white-space: nowrap;
+    //   margin: 0 auto;
+    //   letter-spacing: .15em;
+      animation:
+        typing 4s steps(50, end),
+        blink-caret .9s step-end infinite;
+
+        @keyframes typing {
+            from {
+              width: 0
+            }
+      
+            to {
+              width: 100%
+            }
+          }
+          @keyframes blink-caret {
+
+            from,
+            to {
+              border-color: transparent
+            }
+      
+            50% {
+              border-color: white
+            }
+          }
+    }
+    
+    
+  }
+
+}

@@ -3,14 +3,26 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { TopbarComponent } from './components/topbar/topbar.component';
+import { PrimaryButtonComponent } from './components/buttons/primary-button.component';
+import { SecondaryButtonComponent } from './components/buttons/secondary-button.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomePageComponent,
+    TopbarComponent,
+    PrimaryButtonComponent,
+    SecondaryButtonComponent,
+    
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
