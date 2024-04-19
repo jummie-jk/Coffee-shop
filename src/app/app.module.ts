@@ -7,6 +7,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { TopbarComponent } from './components/topbar/topbar.component';
 import { PrimaryButtonComponent } from './components/buttons/primary-button.component';
 import { SecondaryButtonComponent } from './components/buttons/secondary-button.component';
+import { CoffeePageComponent } from './coffee-page/coffee-page.component';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { SecondaryButtonComponent } from './components/buttons/secondary-button.
     TopbarComponent,
     PrimaryButtonComponent,
     SecondaryButtonComponent,
+    CoffeePageComponent,
     
     
   ],
