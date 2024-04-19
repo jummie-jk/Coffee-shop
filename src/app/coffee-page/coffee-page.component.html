@@ -22,11 +22,18 @@
             There is always a new cup worth experiencing</p>
         </div>
     </div>
+    <div class="filter">
+        <secondary-button [buttonText]="'Cappucino'" (click)="filter= 'Cappucino'"></secondary-button>
+        <secondary-button [buttonText]="'Latte'" (click)="filter= 'Latte'"></secondary-button>
+        <secondary-button [buttonText]="'Macchiato'" (click)="filter= 'Macchiato'"></secondary-button>
+        <secondary-button [buttonText]="'Espresso'" (click)="filter= 'Espresso'"></secondary-button>
+        <secondary-button [buttonText]="'All'" (click)="filter= ''"></secondary-button>
+    </div>
     <!-- Cofee Product card -->
     <!-- If there is a coffee product available display it and iterate through the product array -->
     <div class="product-div">
         <div *ngIf="coffeeProducts" class="products">
-            <div *ngFor="let coffee of coffeeProducts">
+            <div *ngFor="let coffee of  getfilterProducts()">
                 <img src={{coffee.coffeeImage}} alt="coffee-image" class="product-image">
                 <div class="product-details">
                     <p class="coffee-name">{{coffee.coffeeName}}</p>
