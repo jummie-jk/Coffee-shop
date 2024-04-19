@@ -1,14 +1,21 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-secondary-button',
-  template: `<button class=>{{buttonText}}</button>`,
-  styles: [`.primary {
-    
+  selector: 'secondary-button',
+  template: `<button class="secondary">{{buttonText}}</button>`,
+  styles: [`.secondary {
+    border-radius: 24px;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    color: white;
+    background-color: #432010;
+    font-size: 16px;
+    border: none;
+    margin-top: 1rem;
   }
   p {
-    font-size: 18px;
-    color: blue;
+    font-size: 16px;
+    color: white;
   }`]
 })
 export class SecondaryButtonComponent {

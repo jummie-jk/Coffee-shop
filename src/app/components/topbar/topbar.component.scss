@@ -1,0 +1,40 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5rem;
+    background-color: #3a2a22;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+  
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    //   color: #432010;
+      color: white;
+      text-decoration: none;
+      font-family: "Clicker Script", cursive;
+    }
+  
+    .nav-links {
+      list-style-type: none;
+      display: flex;
+      gap: 30px;
+  
+      li {
+        a {
+          text-decoration: none;
+        //   color: #432010;
+          color: white;
+          font-size: 16px;
+          font-weight: bold;
+          transition: color 0.3s ease;
+  
+          &:hover {
+            color: #ff5733; 
+          }
+        }
+      }
+    }
+  }
+  

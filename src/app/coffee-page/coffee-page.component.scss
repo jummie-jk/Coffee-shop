@@ -1,6 +1,6 @@
 .sec {
   // padding: 5rem;
-  margin-top: 5rem;
+  margin: 5rem 0;
 
   .productSection {
     text-align: center;
@@ -47,6 +47,15 @@
       .product-details {
         background-color: #FFF9F1;
         text-align: center;
+        margin: 0;
+        padding: 1rem;
+      }
+      .coffee-name{
+        font-weight: bold;
+        
+      }
+      .coffee-content{
+        margin: 0.5rem 0;
       }
 
     }
