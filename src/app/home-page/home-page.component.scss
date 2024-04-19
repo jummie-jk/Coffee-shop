@@ -9,13 +9,16 @@
   .home-page-sub {
     padding: 5rem;
     color: white;
+
     .coffee-welcome-text {
       font-size: 22px;
     }
+
     .coffee-text-sub {
       font-size: 20px;
       padding-bottom: 2rem;
     }
+
     .coffee-text {
       font-size: 14rem;
       font-family: "Clicker Script", cursive;
@@ -23,93 +26,101 @@
 
     .typewriter {
       overflow: hidden;
-    //   border-right: .15em solid orange;
+      //   border-right: .15em solid orange;
       white-space: nowrap;
-    //   margin: 0 auto;
-    //   letter-spacing: .15em;
+      //   margin: 0 auto;
+      //   letter-spacing: .15em;
       animation:
         typing 4s steps(50, end),
         blink-caret .9s step-end infinite;
 
-        @keyframes typing {
-            from {
-              width: 0
-            }
-      
-            to {
-              width: 100%
-            }
-          }
-          @keyframes blink-caret {
+      @keyframes typing {
+        from {
+          width: 0
+        }
 
-            from,
-            to {
-              border-color: transparent
-            }
-      
-            50% {
-              border-color: white
-            }
-          }
+        to {
+          width: 100%
+        }
+      }
+
+      @keyframes blink-caret {
+
+        from,
+        to {
+          border-color: transparent
+        }
+
+        50% {
+          border-color: white
+        }
+      }
     }
-    
-    
   }
+
   /* Responsive Styling */
-@media (max-width: 1000px) {
+  @media (max-width: 1000px) {
     .home-page-sub {
       padding: 2.5rem;
+
       .coffee-welcome-text {
         font-size: 18px;
       }
-    
+
       .coffee-text-sub {
         font-size: 18px;
         padding-bottom: 1.5rem;
       }
-    
+
       .coffee-text {
         font-size: 10rem;
       }
     }
-  
-    
+
+
   }
-@media (max-width: 768px) {
+
+  @media (max-width: 768px) {
     .home-page-sub {
       padding: 2rem;
-    .coffee-welcome-text {
+
+      .coffee-welcome-text {
         font-size: 18px;
       }
+
       .coffee-text-sub {
         font-size: 18px;
         padding-bottom: 1.5rem;
       }
+
       .coffee-text {
         font-size: 8rem;
       }
     }
 
   }
-  
+
   @media (max-width: 576px) {
     .home-page-sub {
       padding: 1rem;
+
       .coffee-welcome-text {
-        font-size: 12px ;
+        font-size: 12px;
       }
+
       .coffee-text-sub {
-        font-size: 12px ;
+        font-size: 12px;
         padding-bottom: 1rem;
       }
+
       .coffee-text {
         font-size: 5rem;
       }
     }
-  
-   
-  
-   
+
+
+
+
   }
 
 }

@@ -1,0 +1,88 @@
+.sec {
+  // padding: 5rem;
+  margin-top: 5rem;
+
+  .productSection {
+    text-align: center;
+
+    .coffee-seeds {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .coffee-div {
+      padding: 5rem;
+    }
+
+    .enjoy-coffee {
+      font-size: 40px;
+      text-transform: uppercase;
+      color: #432010;
+      padding: 1rem 0;
+    }
+  }
+
+  .product-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 4rem;
+
+      .product-image {
+        border-radius: 15px 15px 0 0;
+        width: 240px;
+        height: auto;
+        object-fit: contain;
+        box-shadow: 4px 0px 4px 0px rgba(0, 0, 0, 0.1);
+        padding: 0;
+        margin: 0;
+      }
+
+      .product-details {
+        background-color: #FFF9F1;
+        text-align: center;
+      }
+
+    }
+  }
+
+
+  .flex-btw {
+    padding: 0 5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: "Playfair Display", serif;
+    color: #432010;
+
+    .main-text {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      font-weight: bold;
+    }
+
+    .sub-main-text {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 2rem;
+    }
+
+    .sub-text {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .coffee-image {
+      width: 40rem;
+      height: auto;
+    }
+  }
+
+}

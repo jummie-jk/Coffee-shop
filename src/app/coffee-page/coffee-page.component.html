@@ -1,3 +1,42 @@
-<section>
-    <div>Hi</div>
+<section class="sec">
+    <div class="flex-btw">
+        <div>
+            <p class="main-text">Discover the Art  
+              of Perfect Coffee.
+            </p>
+            <p class="sub-text">Experience the difference as we meticulously select and roast the finest beans to create a truly unforgettable cup of coffee. Join us on a journey of taste and awaken your senses, one sip at a time.</p>
+            <p class="sub-main-text">Fun Fact! <br/> You can create your personalized order!</p>
+            <app-primary-button [buttonText]="'Curate your order'"></app-primary-button>
+        </div>
+        <div>
+            <img src="../../assets/coffee-landing.png" alt="" class="coffee-image">
+        </div>
+    </div>
+    <!-- Products section -->
+    <div class="productSection">
+        <img src="../../assets/coffee-seeds.png" alt="" class="coffee-seeds">
+        <div class="coffee-div">
+            <p class="enjoy-coffee">eNJOY a new blend of Coffee style</p>
+        <p>Explore all flavours of coffee with us. <br>
+            There is always a new cup worth experiencing</p>
+        </div>
+        
+    </div>
+    <!-- Cofee Product card -->
+    <!-- If there is a coffee product available display it and iterate through the product array -->
+    <div class="product-div">
+        <div *ngIf="coffeeProducts" class="products">
+            <div *ngFor="let coffee of coffeeProducts">
+                <img src={{coffee.coffeeImage}} alt="coffee-image" class="product-image">
+                <div class="product-details">
+                    <p>{{coffee.coffeeName}}</p>
+                    <p>{{coffee.coffeeContent}}</p>
+                    <p>{{coffee.coffeePrice}}</p>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+
+   
 </section>
