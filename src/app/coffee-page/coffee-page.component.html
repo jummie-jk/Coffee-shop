@@ -23,11 +23,12 @@
         </div>
     </div>
     <div class="filter">
-        <secondary-button [buttonText]="'Cappucino'" (click)="filter= 'Cappucino'"></secondary-button>
-        <secondary-button [buttonText]="'Latte'" (click)="filter= 'Latte'"></secondary-button>
-        <secondary-button [buttonText]="'Macchiato'" (click)="filter= 'Macchiato'"></secondary-button>
-        <secondary-button [buttonText]="'Espresso'" (click)="filter= 'Espresso'"></secondary-button>
-        <secondary-button [buttonText]="'All'" (click)="filter= ''"></secondary-button>
+        <p>Filters:</p>
+        <outlined-button [buttonText]="'Cappucino'" (click)="filter= 'Cappucino'"></outlined-button>
+        <outlined-button [buttonText]="'Latte'" (click)="filter= 'Latte'"></outlined-button>
+        <outlined-button [buttonText]="'Macchiato'" (click)="filter= 'Macchiato'"></outlined-button>
+        <outlined-button [buttonText]="'Espresso'" (click)="filter= 'Espresso'"></outlined-button>
+        <outlined-button [buttonText]="'All'" (click)="filter= ''"></outlined-button>
     </div>
     <!-- Cofee Product card -->
     <!-- If there is a coffee product available display it and iterate through the product array -->
@@ -39,7 +40,7 @@
                     <p class="coffee-name">{{coffee.coffeeName}}</p>
                     <p class="coffee-content">{{coffee.coffeeContent}}</p>
                     <p>{{coffee.coffeePrice}}</p>
-                    <secondary-button [buttonText]="'Order now!'"></secondary-button>
+                    <small-button [buttonText]="'Order now!'"></small-button>
                 </div>
             </div>
         </div>
