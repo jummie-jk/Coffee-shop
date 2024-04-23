@@ -10,6 +10,7 @@ import { SecondaryButtonComponent } from './components/buttons/secondary-button.
 import { CoffeePageComponent } from './coffee-page/coffee-page.component';
 import { OutlinedButtonComponent } from './components/buttons/outlined-button.component';
 import { SmallButtonComponent } from './components/buttons/small-button.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { SmallButtonComponent } from './components/buttons/small-button.componen
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
 
   ],
   providers: [],

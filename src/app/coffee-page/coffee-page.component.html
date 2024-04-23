@@ -46,5 +46,19 @@
         </div>
     </div>
 
+    <div class="product-div">
+        <p class="fakedb">Displaying coffee products from the fake database</p>
+        <div class="products">     
+            <div *ngFor="let coffee of  allCoffee">
+                <img src={{coffee.coffeeImage}} alt="coffee-image" class="product-image">
+                <div class="product-details">
+                    <p class="coffee-name">{{coffee.coffeeName}}</p>
+                    <p class="coffee-content">{{coffee.coffeeContent}}</p>
+                    <p>{{coffee.coffeePrice}}</p>
+                    <small-button [buttonText]="'Order now!'"></small-button>
+                </div>
+            </div>
+        </div>
+    </div>
    
 </section>

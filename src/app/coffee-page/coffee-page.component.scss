@@ -37,13 +37,17 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    .fakedb{
+      margin: 3rem 0;
+      font-size: 2rem;
+    }
 
    
     .products {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 4rem;
+     
      
 
       .product-image {
