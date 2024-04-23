@@ -6,6 +6,7 @@
   background-position: center;
   background-size: cover;
 
+
   .home-page-sub {
     padding: 5rem;
     color: white;
@@ -57,7 +58,10 @@
       }
     }
   }
-
+  .flex-btw{
+    display: flex;
+    flex-direction: row;
+  }
   /* Responsive Styling */
   @media (max-width: 1000px) {
     .home-page-sub {
@@ -119,8 +123,28 @@
     }
 
 
-
-
+  }
+  .section{
+    margin-top: 2rem;
+  }
+  .flex-btw{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+  }
+  .coffee-text-main {
+    font-size: 54px;
+    padding-bottom: 1.5rem;
+    line-height: 40px;
+    font-weight: bold;
+    color: #603809;
+  }
+  
+  .coffee-text-sub {
+    font-size: 18px;
+    padding-bottom: 1.5rem;
+    line-height: 34px;
   }
 
 }

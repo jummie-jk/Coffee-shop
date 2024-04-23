@@ -11,6 +11,8 @@ import { CoffeePageComponent } from './coffee-page/coffee-page.component';
 import { OutlinedButtonComponent } from './components/buttons/outlined-button.component';
 import { SmallButtonComponent } from './components/buttons/small-button.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DeleteButtonComponent } from './components/buttons/delete-button.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 
 @NgModule({
@@ -23,6 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
     OutlinedButtonComponent,
     SmallButtonComponent,
     CoffeePageComponent,
+    DeleteButtonComponent,
+    NavbarComponent
     
     
   ],

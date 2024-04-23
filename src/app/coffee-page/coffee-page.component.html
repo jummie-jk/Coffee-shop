@@ -1,4 +1,4 @@
-<app-topbar [style.background-color]="'#000'"></app-topbar>
+<app-navbar [style.background-color]="'#000'"></app-navbar>
 <section class="sec">
     <div class="flex-btw">
         <div>
@@ -7,7 +7,7 @@
             </p>
             <p class="sub-text">Experience the difference as we meticulously select and roast the finest beans to create a truly unforgettable cup of coffee. Join us on a journey of taste and awaken your senses, one sip at a time.</p>
             <p class="sub-main-text">Fun Fact! <br/> You can create your personalized order!</p>
-            <secondary-button [buttonText]="'Curate your order'"></secondary-button>
+            <secondary-button [buttonText]="'Curate your order'" (click)="openModal(contentModal)"></secondary-button>
         </div>
         <div>
             <img src="../../assets/coffee-landing.png" alt="" class="coffee-image">
@@ -55,10 +55,24 @@
                     <p class="coffee-name">{{coffee.coffeeName}}</p>
                     <p class="coffee-content">{{coffee.coffeeContent}}</p>
                     <p>{{coffee.coffeePrice}}</p>
-                    <small-button [buttonText]="'Order now!'"></small-button>
+                    <div>
+                        <small-button [buttonText]="'Edit'"></small-button>
+                        <delete-button [buttonText]="'Delete'" (click)="deleteSelectedCoffee(coffee.id)"></delete-button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
    
 </section>
+<ng-template #contentModal let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-primary-title">Title</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body centered">
+      <!--Body-->
+    </div>
+  </ng-template>

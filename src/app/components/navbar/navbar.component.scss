@@ -1,18 +1,26 @@
 .navbar {
-    // position: sticky;
-    // top: 0; 
+    position: sticky;
+    top: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 5rem;
-    background-color: transparent;
+    background-color: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    // display: flex;
+    // justify-content: space-between;
+    // align-items: center;
+    // padding: 10px 5rem;
+    // background-color: white;
+    // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    // position: sticky;
   
     .logo {
       font-size: 24px;
       font-weight: bold;
-    //   color: #432010;
-      color: white;
+      color: #432010;
+      // color: white;
       text-decoration: none;
       font-family: "Clicker Script", cursive;
     }
@@ -26,7 +34,7 @@
         a {
           text-decoration: none;
         //   color: #432010;
-          color: white;
+          color: #432010;
           font-size: 16px;
           font-weight: bold;
           transition: color 0.3s ease;

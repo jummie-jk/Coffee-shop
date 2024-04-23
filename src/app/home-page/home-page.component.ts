@@ -8,4 +8,11 @@ import { Component } from '@angular/core';
 export class HomePageComponent {
   start: boolean = false
   text: string = "Coffee"
+
+
+
+
+  // deleteSelectedCoffee(){
+  //   this.coffee.
+  // }
 }

@@ -1,5 +1,6 @@
-<app-topbar [style.background-color]="'transparent'"></app-topbar>
+
 <section class="home-page">
+    <app-topbar [style.background-color]="'transparent'"></app-topbar>
     <section class="home-page-sub">
         <div>
             <p class="coffee-welcome-text">We’ve got your morning covered with</p>
@@ -9,6 +10,16 @@
                 for our customers.
             </p>
             <app-primary-button [buttonText]="'Order Now'"></app-primary-button>
+        </div>
+    </section>
+    <section class="flex-btw section">
+        <div>
+            <p class="coffee-text-main">Discover the best coffee</p>
+            <p class="coffee-text-sub">Bean Scene is a coffee shop that provides you with quality <br/> coffee that helps boost your productivity and helps build your mood. <br/>  Having a cup of coffee is good, but having a cup of real <br/>  coffee is greater. There is no doubt that you will enjoy this <br/>  coffee more than others you have ever tasted.</p>
+            <app-primary-button [buttonText]="'Learn More'"></app-primary-button>
+        </div>
+        <div>
+            <img src="../../assets/coffe-seed-cup.png" alt="coffee-seed">
         </div>
     </section>
 </section>
