@@ -56,41 +56,11 @@
             </div>
         </div>
     </div>
-    <!-- Coffee Modal -->
-    <div
-    class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display': displayStyle}" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Tell us how you want your coffee!</h4>
-            </div>
-            <div class="modal-body">
-                <div class="add-coffee-form">
-                    <p>Add New Coffee Order</p>
-                    <form [formGroup]="addCoffeeForm" (ngSubmit)="AddCoffee()">
-                        <input type="text" formControlName="coffeeName"
-                            placeholder="Coffee Name" required>
-                        <input type="text" formControlName="coffeeContent"
-                            placeholder="Coffee Content" required>
-                        <input type="number" formControlName="coffeePrice"
-                            placeholder="Coffee Price" required>
-                        <button type="submit" class="submit-button" [disabled]="addCoffeeForm.invalid">Add Coffee</button>
-                    </form>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" (click)="closePopup()">Close</button>
-
-            </div>
-        </div>
-    </div>
-    </div>
-    
-    <!-- Add Coffee Form -->
+    <!-- Coffee Products from the database -->
     <div class="product-div">
         <p class="fakedb">Displaying coffee products from the fake database</p>
-        <!-- <secondary-button
-        [buttonText]="'Add coffee'" (click)="openPopup()"></secondary-button> -->
+        <secondary-button
+        [buttonText]="'Add coffee'" (click)="openPopup()"></secondary-button>
         <div class="products">
             <div *ngFor="let coffee of  allCoffee">
                 <img src={{coffee.coffeeImage}} alt="coffee-image"
@@ -100,7 +70,7 @@
                     <p class="coffee-content">{{coffee.coffeeContent}}</p>
                     <p>{{coffee.coffeePrice}}</p>
                     <div>
-                        <small-button [buttonText]="'Edit'"></small-button>
+                        <small-button [buttonText]="'Edit'" (click)="openEditPopup()"></small-button>
                         <delete-button [buttonText]="'Delete'"
                             (click)="deleteSelectedCoffee(coffee.id)">
                         </delete-button>
@@ -109,8 +79,65 @@
                 </div>
             </div>
         </div>
-    </div>
- <div>
+     </div>
+      <!-- Add Coffee Modal -->
+    <div
+    class="modal" #createModal tabindex="-1" role="dialog" [ngStyle]="{'display': displayCreateModal}" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title">Tell us how you want your coffee!</h4>
+        </div>
+        <div class="modal-body">
+            <div class="add-coffee-form">
+                <p>Add New Coffee Order</p>
+                <form [formGroup]="addCoffeeForm" (ngSubmit)="AddCoffee()">
+                    <input type="text" formControlName="coffeeName"
+                        placeholder="Coffee Name" required>
+                    <input type="text" formControlName="coffeeContent"
+                        placeholder="Coffee Content" required>
+                    <input type="number" formControlName="coffeePrice"
+                        placeholder="Coffee Price" required>
+                    <button type="submit" class="submit-button" [disabled]="addCoffeeForm.invalid">Add Coffee</button>
+                </form>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" (click)="closePopup()">Close</button>
 
+        </div>
     </div>
+  </div>
+</div>
+ <div>
+     <!-- Edit Coffee Modal -->
+     <div
+        class="modal" #editModal tabindex="-1" role="dialog" [ngStyle]="{'display': displayEditModal}" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+         <div class="modal-header">
+             <h4 class="modal-title">Change your order!</h4>
+         </div>
+         <div class="modal-body">
+             <div class="add-coffee-form">
+                 <p>Edit Coffee Order</p>
+                 <!-- <form [formGroup]="addCoffeeForm" (ngSubmit)="AddCoffee()">
+                     <input type="text" formControlName="coffeeName"
+                         placeholder="Coffee Name" required>
+                     <input type="text" formControlName="coffeeContent"
+                         placeholder="Coffee Content" required>
+                     <input type="number" formControlName="coffeePrice"
+                         placeholder="Coffee Price" required>
+                     <button type="submit" class="submit-button" [disabled]="addCoffeeForm.invalid">Add Coffee</button>
+                 </form> -->
+                 This is the
+             </div>
+         </div>
+         <div class="modal-footer">
+             <button type="button" class="btn btn-danger" (click)="closeEditPopup()">Close</button>
+         </div>
+     </div>
+   </div>
+ </div>
+</div>
 </section>

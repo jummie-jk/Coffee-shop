@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { coffeeData } from '../shared/data/coffee-data';
 import { CoffeeServices } from '../shared/services/coffee-page.services';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -18,6 +18,9 @@ export class CoffeePageComponent {
   modalService: any;
   Id!: number;
   addCoffeeForm!: FormGroup;
+
+  @ViewChild('createModal') createModal: any;
+  @ViewChild('editModal') editModal: any;  
 
   constructor(private coffeeServices: CoffeeServices, private fb: FormBuilder){
     this.addCoffeeForm = this.fb.group({
@@ -96,12 +99,20 @@ export class CoffeePageComponent {
   } 
 
   // Modal
-  displayStyle = "none"; 
+  displayCreateModal = "none";
+  displayEditModal = "none";
   openPopup() { 
-    this.displayStyle = "block"; 
+    this.displayCreateModal = "block"; 
   } 
   closePopup() { 
-    this.displayStyle = "none"; 
+    this.displayCreateModal = "none"; 
+  } 
+
+  openEditPopup() { 
+    this.displayEditModal= "block"; 
+  } 
+  closeEditPopup() { 
+    this.displayEditModal = "none"; 
   } 
 
 }

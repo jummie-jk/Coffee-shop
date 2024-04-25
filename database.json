@@ -8,13 +8,6 @@
       "coffeePrice": "$80"
     },
     {
-      "id": "3",
-      "coffeeImage": "../../assets/coffee-b.png",
-      "coffeeName": "Espresso",
-      "coffeeContent": "50% Milk and 70% coffee",
-      "coffeePrice": "$80"
-    },
-    {
       "id": "4",
       "coffeeImage": "../../assets/coffee-c.png",
       "coffeeName": "Espresso",
