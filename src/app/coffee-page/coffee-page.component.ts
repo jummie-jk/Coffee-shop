@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import { coffeeData } from '../shared/data/coffee-data';
 import { CoffeeServices } from '../shared/services/coffee-page.services';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'app-coffee-page',
   templateUrl: './coffee-page.component.html',
-  styleUrls: ['./coffee-page.component.scss']
+  styleUrls: ['./coffee-page.component.scss'],
 })
 export class CoffeePageComponent {
   coffeeProducts = coffeeData;
@@ -15,12 +17,17 @@ export class CoffeePageComponent {
   deleteCoffee: any;
   modalService: any;
   Id!: number;
+  addCoffeeForm!: FormGroup;
 
-  constructor(private coffeeServices: CoffeeServices){}
+  constructor(private coffeeServices: CoffeeServices, private fb: FormBuilder){
+    this.addCoffeeForm = this.fb.group({
+      coffeeName: ['', Validators.required],
+      coffeeContent: ['' , Validators.required],
+      coffeePrice: ['' , Validators.required],
+      coffeeImage: ['../../assets/coffee-a.png'],
+    })
+  }
 
-  // ngOninIt(): void{
-  //   this.getAllCoffee()
-  // }
   ngOnInit(): void {
     this.getAllCoffee();
   }
@@ -32,7 +39,7 @@ export class CoffeePageComponent {
     :this.coffeeProducts.filter((product) => product.coffeeName === this.filter)
   
   }
-
+// Get all coffee
   getAllCoffee(){
     this.coffeeServices.getCoffee().subscribe({
       next: (res) => {
@@ -45,9 +52,8 @@ export class CoffeePageComponent {
     }
     )
   }
-  openModal(contentModal: any) {
-    this.modalService.open(contentModal);
-}
+
+// Delete selected coffee by it Id
   deleteSelectedCoffee(Id: number){
     this.coffeeServices.deleteCoffee(Id).subscribe({
       next: (res) => {
@@ -60,6 +66,7 @@ export class CoffeePageComponent {
       }
     })
   }
+  // TODO
   updateSelectedCoffee(Id: number, data:any){
     this.coffeeServices.updateCoffee(Id, data).subscribe({
       next: (res) => {
@@ -72,6 +79,29 @@ export class CoffeePageComponent {
       }
     })
   }
-  
+// Create a coffee
+  AddCoffee(): void {
+    if(this.addCoffeeForm.valid){
+      const coffeeData = this.addCoffeeForm.value;
+      this.coffeeServices.addCoffee(coffeeData).subscribe({
+        next: (res) => {
+          console.log("CoffeeAdded:", res)
+          this.getAllCoffee();
+        },
+        error: (error) => {
+          console.log("Error adding coffee:", error)
+        }
+      })
+    }
+  } 
+
+  // Modal
+  displayStyle = "none"; 
+  openPopup() { 
+    this.displayStyle = "block"; 
+  } 
+  closePopup() { 
+    this.displayStyle = "none"; 
+  } 
 
 }

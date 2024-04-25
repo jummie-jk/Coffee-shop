@@ -7,29 +7,26 @@ import { Observable } from "rxjs";
 })
 
 export class CoffeeServices{
-
     baseUrl: string = "http://localhost:3000"
 
     constructor(private httpClient: HttpClient) { }
-
-    addCoffee(data: any): Observable<any>{
-        return this.httpClient.post(this.baseUrl + 'coffeeProducts' , data)
-    }
+    // Service to perform CRUD )perations
     updateCoffee(id: number, data: any): Observable<any> {
         const url = `${this.baseUrl}/coffeeProducts/${id}`;
         return this.httpClient.put(url, data);
       }
 
     getCoffee(){
-        return this.httpClient.get('http://localhost:3000/coffeeProducts')
+        return this.httpClient.get(`${this.baseUrl}/coffeeProducts`)
     }
-
-    // deleteCoffee(id: number){
-    //     return this.httpClient.delete(this.baseUrl + coffeeProducts / ${id})
-    // }
 
     deleteCoffee(id: number): Observable<any> {
         return this.httpClient.delete(`${this.baseUrl}/coffeeProducts/${id}`);
     }
+
+    addCoffee(data: any): Observable<any> {
+        return this.httpClient.post<any>(`${this.baseUrl}/coffeeProducts` , data);
+    }
+
 
 }

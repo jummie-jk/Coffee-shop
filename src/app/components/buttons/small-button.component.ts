@@ -20,4 +20,5 @@ import { Component, Input } from '@angular/core';
 })
 export class SmallButtonComponent {
     @Input() buttonText: string = 'small'; 
+    @Input() disabled?: boolean = true; 
 }

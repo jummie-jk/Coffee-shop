@@ -109,5 +109,59 @@
       height: auto;
     }
   }
+  .modal{
+    backdrop-filter: blur(3px)!important;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  // Define variables for reusable colors
+$primary-color: #432010;
+$primary-color-dark: #0056b3;
+$input-border-color: #ccc;
+
+// Define mixin for input styling
+@mixin input-styles {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid $input-border-color;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+
+  &:focus {
+    outline: none;
+    border-color: $primary-color;
+    box-shadow: 0 0 5px rgba($primary-color, 0.5);
+  }
+}
+
+// Apply styles to form and its children
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  // Apply styles to input fields
+  input[type="text"],
+  input[type="number"] {
+    @include input-styles;
+  }
+
+  // Apply styles to submit button
+  button[type="submit"] {
+    background-color: $primary-color;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: $primary-color;
+    }
+  }
+}
 
 }

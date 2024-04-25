@@ -13,6 +13,7 @@ import { SmallButtonComponent } from './components/buttons/small-button.componen
 import { HttpClientModule } from '@angular/common/http';
 import { DeleteButtonComponent } from './components/buttons/delete-button.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule
 
   ],
   providers: [],

@@ -2,40 +2,51 @@
 <section class="sec">
     <div class="flex-btw">
         <div>
-            <p class="main-text">Discover the Art  
-              of Perfect Coffee.
+            <p class="main-text">Discover the Art
+                of Perfect Coffee.
             </p>
-            <p class="sub-text">Experience the difference as we meticulously select and roast the finest beans to create a truly unforgettable cup of coffee. Join us on a journey of taste and awaken your senses, one sip at a time.</p>
-            <p class="sub-main-text">Fun Fact! <br/> You can create your personalized order!</p>
-            <secondary-button [buttonText]="'Curate your order'" (click)="openModal(contentModal)"></secondary-button>
+            <p class="sub-text">Experience the difference as we meticulously
+                select and roast the finest beans to create a truly
+                unforgettable cup of coffee. Join us on a journey of taste and
+                awaken your senses, one sip at a time.</p>
+            <p class="sub-main-text">Fun Fact! <br /> You can create your
+                personalized order!</p>
+            <secondary-button
+                [buttonText]="'Curate your order'" (click)="openPopup()"></secondary-button>
         </div>
         <div>
-            <img src="../../assets/coffee-landing.png" alt="" class="coffee-image">
+            <img src="../../assets/coffee-landing.png" alt class="coffee-image">
         </div>
     </div>
     <!-- Products section -->
     <div class="productSection">
-        <img src="../../assets/coffee-seeds.png" alt="" class="coffee-seeds">
+        <img src="../../assets/coffee-seeds.png" alt class="coffee-seeds">
         <div class="coffee-div">
             <p class="enjoy-coffee">eNJOY a new blend of Coffee style</p>
-        <p>Explore all flavours of coffee with us. <br>
-            There is always a new cup worth experiencing</p>
+            <p>Explore all flavours of coffee with us. <br>
+                There is always a new cup worth experiencing</p>
         </div>
     </div>
     <div class="filter">
         <p>Filters:</p>
-        <outlined-button [buttonText]="'Cappucino'" (click)="filter= 'Cappucino'"></outlined-button>
-        <outlined-button [buttonText]="'Latte'" (click)="filter= 'Latte'"></outlined-button>
-        <outlined-button [buttonText]="'Macchiato'" (click)="filter= 'Macchiato'"></outlined-button>
-        <outlined-button [buttonText]="'Espresso'" (click)="filter= 'Espresso'"></outlined-button>
-        <outlined-button [buttonText]="'All'" (click)="filter= ''"></outlined-button>
+        <outlined-button [buttonText]="'Cappucino'"
+            (click)="filter= 'Cappucino'"></outlined-button>
+        <outlined-button [buttonText]="'Latte'"
+            (click)="filter= 'Latte'"></outlined-button>
+        <outlined-button [buttonText]="'Macchiato'"
+            (click)="filter= 'Macchiato'"></outlined-button>
+        <outlined-button [buttonText]="'Espresso'"
+            (click)="filter= 'Espresso'"></outlined-button>
+        <outlined-button [buttonText]="'All'"
+            (click)="filter= ''"></outlined-button>
     </div>
     <!-- Cofee Product card -->
     <!-- If there is a coffee product available display it and iterate through the product array -->
     <div class="product-div">
         <div *ngIf="coffeeProducts" class="products">
             <div *ngFor="let coffee of  getfilterProducts()">
-                <img src={{coffee.coffeeImage}} alt="coffee-image" class="product-image">
+                <img src={{coffee.coffeeImage}} alt="coffee-image"
+                    class="product-image">
                 <div class="product-details">
                     <p class="coffee-name">{{coffee.coffeeName}}</p>
                     <p class="coffee-content">{{coffee.coffeeContent}}</p>
@@ -45,34 +56,61 @@
             </div>
         </div>
     </div>
+    <!-- Coffee Modal -->
+    <div
+    class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display': displayStyle}" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Tell us how you want your coffee!</h4>
+            </div>
+            <div class="modal-body">
+                <div class="add-coffee-form">
+                    <p>Add New Coffee Order</p>
+                    <form [formGroup]="addCoffeeForm" (ngSubmit)="AddCoffee()">
+                        <input type="text" formControlName="coffeeName"
+                            placeholder="Coffee Name" required>
+                        <input type="text" formControlName="coffeeContent"
+                            placeholder="Coffee Content" required>
+                        <input type="number" formControlName="coffeePrice"
+                            placeholder="Coffee Price" required>
+                        <button type="submit" class="submit-button" [disabled]="addCoffeeForm.invalid">Add Coffee</button>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" (click)="closePopup()">Close</button>
 
+            </div>
+        </div>
+    </div>
+    </div>
+    
+    <!-- Add Coffee Form -->
     <div class="product-div">
         <p class="fakedb">Displaying coffee products from the fake database</p>
-        <div class="products">     
+        <!-- <secondary-button
+        [buttonText]="'Add coffee'" (click)="openPopup()"></secondary-button> -->
+        <div class="products">
             <div *ngFor="let coffee of  allCoffee">
-                <img src={{coffee.coffeeImage}} alt="coffee-image" class="product-image">
+                <img src={{coffee.coffeeImage}} alt="coffee-image"
+                    class="product-image">
                 <div class="product-details">
                     <p class="coffee-name">{{coffee.coffeeName}}</p>
                     <p class="coffee-content">{{coffee.coffeeContent}}</p>
                     <p>{{coffee.coffeePrice}}</p>
                     <div>
                         <small-button [buttonText]="'Edit'"></small-button>
-                        <delete-button [buttonText]="'Delete'" (click)="deleteSelectedCoffee(coffee.id)"></delete-button>
+                        <delete-button [buttonText]="'Delete'"
+                            (click)="deleteSelectedCoffee(coffee.id)">
+                        </delete-button>
                     </div>
+                    <!-- <secondary-button [buttonText]="'Add coffee'" (click)="openPopup()"></secondary-button> -->
                 </div>
             </div>
         </div>
     </div>
-   
+ <div>
+
+    </div>
 </section>
-<ng-template #contentModal let-c="close" let-d="dismiss">
-    <div class="modal-header">
-        <h4 class="modal-title" id="modal-primary-title">Title</h4>
-        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-          <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-    <div class="modal-body centered">
-      <!--Body-->
-    </div>
-  </ng-template>
