@@ -18,6 +18,7 @@ export class CoffeePageComponent {
   modalService: any;
   Id!: number;
   addCoffeeForm!: FormGroup;
+  successMessage: string = ''
 
   @ViewChild('createModal') createModal: any;
   @ViewChild('editModal') editModal: any;  
@@ -90,6 +91,11 @@ export class CoffeePageComponent {
         next: (res) => {
           console.log("CoffeeAdded:", res)
           this.getAllCoffee();
+          this.closePopup();
+          this.successMessage = 'Coffee order successfully added!';
+          setTimeout(() => {
+            this.successMessage = ''; 
+          }, 3000); 
         },
         error: (error) => {
           console.log("Error adding coffee:", error)

@@ -1,5 +1,8 @@
 <app-navbar [style.background-color]="'#000'"></app-navbar>
 <section class="sec">
+    <div *ngIf="successMessage">
+        {{successMessage}}
+    </div>
     <div class="flex-btw">
         <div>
             <p class="main-text">Discover the Art
@@ -76,6 +79,7 @@
                         </delete-button>
                     </div>
                     <!-- <secondary-button [buttonText]="'Add coffee'" (click)="openPopup()"></secondary-button> -->
+                   
                 </div>
             </div>
         </div>

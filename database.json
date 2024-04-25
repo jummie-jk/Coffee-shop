@@ -43,11 +43,32 @@
       "coffeePrice": "$80"
     },
     {
-      "id": "9",
-      "coffeeImage": "../../assets/coffee-d.png",
+      "id": "cdd1",
+      "coffeeName": "Latte",
+      "coffeeContent": "30% milk and 10% sugar",
+      "coffeePrice": 40,
+      "coffeeImage": "../../assets/coffee-a.png"
+    },
+    {
+      "id": "5fd2",
       "coffeeName": "Espresso",
-      "coffeeContent": "50% Milk and 70% coffee",
-      "coffeePrice": "$80"
+      "coffeeContent": "100% black coffee",
+      "coffeePrice": 30,
+      "coffeeImage": "../../assets/coffee-a.png"
+    },
+    {
+      "id": "6797",
+      "coffeeName": "Latte",
+      "coffeeContent": "All black Coffee",
+      "coffeePrice": 40,
+      "coffeeImage": "../../assets/coffee-a.png"
+    },
+    {
+      "id": "371d",
+      "coffeeName": "Latte",
+      "coffeeContent": "All black",
+      "coffeePrice": 30,
+      "coffeeImage": "../../assets/coffee-a.png"
     }
   ]
 }
