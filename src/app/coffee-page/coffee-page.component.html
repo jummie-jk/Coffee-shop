@@ -143,5 +143,31 @@
      </div>
    </div>
  </div>
+ <!-- Success Modal -->
+ <div class="modal" #successModal tabindex="-1" role="dialog" [ngStyle]="{'display': displaySuccessModal}" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+         <div class="modal-body">
+             <div class="">
+                 <p>Your Coffee order has been created!</p>
+                 <button type="button" class="btn btn-danger" (click)="closeSuccessModal()">Close</button>
+             </div>
+         </div>
+     </div>
+   </div>
+ </div>
+ <!-- Delete Modal -->
+ <div class="modal" #deleteModal tabindex="-1" role="dialog" [ngStyle]="{'display': displayDeleteModal}" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+     <div class="modal-body">
+         <div class="">
+             <p class="text-danger">Your Coffee has been deleted!</p>
+             <button type="button" class="btn btn-danger" (click)="closeDeleteModal()">Close</button>
+         </div>
+     </div>
+ </div>
+</div>
+</div>
 </div>
 </section>

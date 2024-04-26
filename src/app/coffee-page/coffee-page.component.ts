@@ -3,12 +3,23 @@ import { coffeeData } from '../shared/data/coffee-data';
 import { CoffeeServices } from '../shared/services/coffee-page.services';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from '@angular/material/snack-bar';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { NavbarComponent } from '../components/navbar/navbar.component';
+import { SecondaryButtonComponent } from '../components/buttons/secondary-button.component';
+import { PrimaryButtonComponent } from '../components/buttons/primary-button.component';
+import { OutlinedButtonComponent } from '../components/buttons/outlined-button.component';
+
 
 
 @Component({
   selector: 'app-coffee-page',
   templateUrl: './coffee-page.component.html',
   styleUrls: ['./coffee-page.component.scss'],
+  // standalone: true,
+  // imports: [CommonModule, MatFormFieldModule, FormsModule, MatInputModule, MatButtonModule,],
 })
 export class CoffeePageComponent {
   coffeeProducts = coffeeData;
@@ -19,11 +30,17 @@ export class CoffeePageComponent {
   Id!: number;
   addCoffeeForm!: FormGroup;
   successMessage: string = ''
+  durationInSeconds = 5
+  horizontalPosition: MatSnackBarHorizontalPosition = 'end';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
+
 
   @ViewChild('createModal') createModal: any;
   @ViewChild('editModal') editModal: any;  
 
-  constructor(private coffeeServices: CoffeeServices, private fb: FormBuilder){
+  constructor(private coffeeServices: CoffeeServices, private fb: FormBuilder, 
+    private _snackBar: MatSnackBar, private snackBar: MatSnackBar,
+  ){
     this.addCoffeeForm = this.fb.group({
       coffeeName: ['', Validators.required],
       coffeeContent: ['' , Validators.required],
@@ -34,6 +51,8 @@ export class CoffeePageComponent {
 
   ngOnInit(): void {
     this.getAllCoffee();
+    this.alertSnackBar("successful")
+    this.alertSnackBar('Your message here');
   }
 
 // Filter products based on the product name
@@ -63,6 +82,7 @@ export class CoffeePageComponent {
       next: (res) => {
         this.deleteCoffee = res;
         console.log("Coffee Deleted: res")
+        this.openDeleteModal();
         this.getAllCoffee();
       },
       error: (error) => {
@@ -92,10 +112,9 @@ export class CoffeePageComponent {
           console.log("CoffeeAdded:", res)
           this.getAllCoffee();
           this.closePopup();
-          this.successMessage = 'Coffee order successfully added!';
-          setTimeout(() => {
-            this.successMessage = ''; 
-          }, 3000); 
+          this.addCoffeeForm.reset();
+          this.openSuccessModal();
+          this.openSnackBar("Coffee Added Successfully!", "")
         },
         error: (error) => {
           console.log("Error adding coffee:", error)
@@ -107,6 +126,8 @@ export class CoffeePageComponent {
   // Modal
   displayCreateModal = "none";
   displayEditModal = "none";
+  displaySuccessModal = "none";
+  displayDeleteModal = "none";
   openPopup() { 
     this.displayCreateModal = "block"; 
   } 
@@ -120,5 +141,52 @@ export class CoffeePageComponent {
   closeEditPopup() { 
     this.displayEditModal = "none"; 
   } 
+  openSuccessModal() { 
+    this.displaySuccessModal= "block"; 
+  } 
+  closeSuccessModal() { 
+    this.displaySuccessModal = "none"; 
+  } 
+  openDeleteModal() { 
+    this.displayDeleteModal = "block"; 
+  } 
+  closeDeleteModal() { 
+    this.displayDeleteModal  = "none"; 
+  } 
+  // openEditModal() { 
+  //   this.displayEditModal = "block"; 
+  // } 
+  // closeEditModal() { 
+  //   this.displayEditModal  = "none"; 
+  // }
 
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+      duration: this.durationInSeconds * 1000,
+    });
+  }
+  // openSnackBar(message: string, action: string) {
+  //   this.snackBar.open(message, action, {
+  //     horizontalPosition: 'center', // Options: 'start', 'center', 'end'
+  //     verticalPosition: 'top', // Options: 'top', 'bottom'
+  //   });
+  // }
+  // alertSnackBar(message: string, horizontalPosition?: string, verticalPosition?:string): void {
+  //   let snack = this.snackBar.open(`${message}`, 'Okay', {
+  //     horizontalPosition:  'right',
+  //     verticalPosition: 'top',
+  //     duration: 8000 // Duration in milliseconds (e.g., 8000 milliseconds = 8 seconds)
+  //   });
+  // }
+  alertSnackBar(message: string, horizontalPosition: any = 'right', verticalPosition: any = 'top'): void {
+    this.snackBar.open(message, 'Okay', {
+      horizontalPosition: horizontalPosition,
+      verticalPosition: verticalPosition,
+      duration: 8000
+    });
+  }
+  
+  
 }

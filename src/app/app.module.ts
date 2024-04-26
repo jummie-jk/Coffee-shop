@@ -13,7 +13,16 @@ import { SmallButtonComponent } from './components/buttons/small-button.componen
 import { HttpClientModule } from '@angular/common/http';
 import { DeleteButtonComponent } from './components/buttons/delete-button.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
+
 
 
 @NgModule({
@@ -25,9 +34,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     SecondaryButtonComponent,
     OutlinedButtonComponent,
     SmallButtonComponent,
-    CoffeePageComponent,
     DeleteButtonComponent,
-    NavbarComponent
+    NavbarComponent,
+    CoffeePageComponent
     
     
   ],
@@ -35,7 +44,16 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule,
+     MatFormFieldModule, 
+     FormsModule, 
+     MatInputModule, 
+     MatButtonModule,
+     MatSnackBarModule,
+     BrowserAnimationsModule,
+     MatSnackBarModule
+  
 
   ],
   providers: [],

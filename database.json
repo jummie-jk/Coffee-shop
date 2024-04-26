@@ -64,10 +64,10 @@
       "coffeeImage": "../../assets/coffee-a.png"
     },
     {
-      "id": "371d",
-      "coffeeName": "Latte",
-      "coffeeContent": "All black",
-      "coffeePrice": 30,
+      "id": "c70b",
+      "coffeeName": "Espresso",
+      "coffeeContent": "90% coffee and 10% Milk",
+      "coffeePrice": 90,
       "coffeeImage": "../../assets/coffee-a.png"
     }
   ]

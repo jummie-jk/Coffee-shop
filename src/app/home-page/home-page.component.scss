@@ -1,15 +1,35 @@
-.home-page {
-  background-image: url("../../assets/coffee_image.png");
-  height: 100vh;
-  width: 100%;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+.main {
+  $primary-color: #432010;
+  $primary-color-dark: #0056b3;
+  $input-border-color: #ccc;
 
+  @mixin input-styles {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid $input-border-color;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+  @mixin flex-between {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 
-  .home-page-sub {
-    padding: 2rem;
-    color: white;
+  .home-page{
+    background-image: url("../../assets/coffee_image.png");
+    height: 100vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    .home-page-sub {
+      padding: 2rem;
+      color: white;
+    }
 
     .coffee-welcome-text {
       font-size: 22px;
@@ -27,10 +47,7 @@
 
     .typewriter {
       overflow: hidden;
-      //   border-right: .15em solid orange;
       white-space: nowrap;
-      //   margin: 0 auto;
-      //   letter-spacing: .15em;
       animation:
         typing 4s steps(50, end),
         blink-caret .9s step-end infinite;
@@ -58,93 +75,84 @@
       }
     }
   }
-  .flex-btw{
-    display: flex;
-    flex-direction: row;
-  }
-  /* Responsive Styling */
-  @media (max-width: 1000px) {
-    .home-page-sub {
-      padding: 2.5rem;
-
-      .coffee-welcome-text {
-        font-size: 18px;
-      }
-
-      .coffee-text-sub {
-        font-size: 18px;
-        padding-bottom: 1.5rem;
-      }
-
-      .coffee-text {
-        font-size: 10rem;
-      }
-    }
-
-
-  }
-
-  @media (max-width: 768px) {
-    .home-page-sub {
-      padding: 2rem;
-
-      .coffee-welcome-text {
-        font-size: 18px;
-      }
-
-      .coffee-text-sub {
-        font-size: 18px;
-        padding-bottom: 1.5rem;
-      }
-
-      .coffee-text {
-        font-size: 8rem;
-      }
-    }
-
-  }
-
-  @media (max-width: 576px) {
-    .home-page-sub {
-      padding: 1rem;
-
-      .coffee-welcome-text {
-        font-size: 12px;
-      }
-
-      .coffee-text-sub {
-        font-size: 12px;
-        padding-bottom: 1rem;
-      }
-
-      .coffee-text {
-        font-size: 5rem;
-      }
-    }
-
-
-  }
   .section{
-    margin-top: 2rem;
+    margin: 3rem;
   }
-  .flex-btw{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    
+  .discover-section{
+    @include flex-between;
+    .discover-text-main{
+        font-size: 3rem;
+        padding-bottom: 1.5rem;
+        font-weight: bold;
+        color: #603809;
+    }
+    .discover-text-sub{
+        font-size: 22px;
+        padding-bottom: 1.5rem;
+        line-height: 34px;
+    }
   }
-  .coffee-text-main {
-    font-size: 54px;
-    padding-bottom: 1.5rem;
-    line-height: 40px;
-    font-weight: bold;
-    color: #603809;
-  }
-  
-  .coffee-text-sub {
-    font-size: 18px;
-    padding-bottom: 1.5rem;
-    line-height: 34px;
-  }
-
 }
+
+
+
+//   /* Responsive Styling */
+//   @media (max-width: 1000px) {
+//     .home-page-sub {
+//       padding: 2.5rem;
+
+//       .coffee-welcome-text {
+//         font-size: 18px;
+//       }
+
+//       .coffee-text-sub {
+//         font-size: 18px;
+//         padding-bottom: 1.5rem;
+//       }
+
+//       .coffee-text {
+//         font-size: 10rem;
+//       }
+//     }
+
+
+//   }
+
+//   @media (max-width: 768px) {
+//     .home-page-sub {
+//       padding: 2rem;
+
+//       .coffee-welcome-text {
+//         font-size: 18px;
+//       }
+
+//       .coffee-text-sub {
+//         font-size: 18px;
+//         padding-bottom: 1.5rem;
+//       }
+
+//       .coffee-text {
+//         font-size: 8rem;
+//       }
+//     }
+
+//   }
+
+//   @media (max-width: 576px) {
+//     .home-page-sub {
+//       padding: 1rem;
+
+//       .coffee-welcome-text {
+//         font-size: 12px;
+//       }
+
+//       .coffee-text-sub {
+//         font-size: 12px;
+//         padding-bottom: 1rem;
+//       }
+
+//       .coffee-text {
+//         font-size: 5rem;
+//       }
+//     }
+// }
