@@ -1,34 +1,6 @@
 {
   "coffeeProducts": [
     {
-      "id": "2",
-      "coffeeImage": "../../assets/coffee-a.png",
-      "coffeeName": "Espresso",
-      "coffeeContent": "50% Milk and 70% coffee",
-      "coffeePrice": "$80"
-    },
-    {
-      "id": "4",
-      "coffeeImage": "../../assets/coffee-c.png",
-      "coffeeName": "Espresso",
-      "coffeeContent": "50% Milk and 70% coffee",
-      "coffeePrice": "$80"
-    },
-    {
-      "id": "5",
-      "coffeeImage": "../../assets/coffee-d.png",
-      "coffeeName": "Espresso",
-      "coffeeContent": "50% Milk and 70% coffee",
-      "coffeePrice": "$80"
-    },
-    {
-      "id": "6",
-      "coffeeImage": "../../assets/coffee-a.png",
-      "coffeeName": "Espresso",
-      "coffeeContent": "50% Milk and 70% coffee",
-      "coffeePrice": "$80"
-    },
-    {
       "id": "7",
       "coffeeImage": "../../assets/coffee-b.png",
       "coffeeName": "Espresso",
@@ -36,38 +8,24 @@
       "coffeePrice": "$80"
     },
     {
-      "id": "8",
-      "coffeeImage": "../../assets/coffee-c.png",
-      "coffeeName": "Espresso",
-      "coffeeContent": "50% Milk and 70% coffee",
-      "coffeePrice": "$80"
-    },
-    {
-      "id": "cdd1",
       "coffeeName": "Latte",
-      "coffeeContent": "30% milk and 10% sugar",
-      "coffeePrice": 40,
-      "coffeeImage": "../../assets/coffee-a.png"
+      "coffeeContent": "All black",
+      "coffeePrice": 23,
+      "coffeeImage": "../../assets/coffee-a.png",
+      "id": "3d6e"
     },
     {
-      "id": "5fd2",
-      "coffeeName": "Espresso",
-      "coffeeContent": "100% black coffee",
-      "coffeePrice": 30,
-      "coffeeImage": "../../assets/coffee-a.png"
-    },
-    {
-      "id": "6797",
+      "id": "5d54",
       "coffeeName": "Latte",
-      "coffeeContent": "All black Coffee",
-      "coffeePrice": 40,
+      "coffeeContent": "All Cream",
+      "coffeePrice": 12,
       "coffeeImage": "../../assets/coffee-a.png"
     },
     {
-      "id": "c70b",
-      "coffeeName": "Espresso",
-      "coffeeContent": "90% coffee and 10% Milk",
-      "coffeePrice": 90,
+      "id": "807a",
+      "coffeeName": "Cappucino",
+      "coffeeContent": "All Cream",
+      "coffeePrice": 23,
       "coffeeImage": "../../assets/coffee-a.png"
     }
   ]

@@ -21,6 +21,7 @@
             <img src="../../assets/coffee-landing.png" alt class="coffee-image">
         </div>
     </div>
+    
     <!-- Products section -->
     <div class="productSection">
         <img src="../../assets/coffee-seeds.png" alt class="coffee-seeds">
@@ -43,6 +44,7 @@
         <outlined-button [buttonText]="'All'"
             (click)="filter= ''"></outlined-button>
     </div>
+
     <!-- Cofee Product card -->
     <!-- If there is a coffee product available display it and iterate through the product array -->
     <div class="product-div">
@@ -59,6 +61,7 @@
             </div>
         </div>
     </div>
+
     <!-- Coffee Products from the database -->
     <div class="product-div">
         <p class="fakedb">Displaying coffee products from the fake database</p>
@@ -73,7 +76,7 @@
                     <p class="coffee-content">{{coffee.coffeeContent}}</p>
                     <p>{{coffee.coffeePrice}}</p>
                     <div>
-                        <small-button [buttonText]="'Edit'" (click)="openEditPopup()"></small-button>
+                        <small-button [buttonText]="'Edit'" (click)="openEditPopup(coffee)" ></small-button>
                         <delete-button [buttonText]="'Delete'"
                             (click)="deleteSelectedCoffee(coffee.id)">
                         </delete-button>
@@ -84,6 +87,7 @@
             </div>
         </div>
      </div>
+
       <!-- Add Coffee Modal -->
     <div
     class="modal" #createModal tabindex="-1" role="dialog" [ngStyle]="{'display': displayCreateModal}" aria-hidden="true">
@@ -114,6 +118,7 @@
   </div>
 </div>
  <div>
+
      <!-- Edit Coffee Modal -->
      <div
         class="modal" #editModal tabindex="-1" role="dialog" [ngStyle]="{'display': displayEditModal}" aria-hidden="true">
@@ -125,16 +130,21 @@
          <div class="modal-body">
              <div class="add-coffee-form">
                  <p>Edit Coffee Order</p>
-                 <!-- <form [formGroup]="addCoffeeForm" (ngSubmit)="AddCoffee()">
-                     <input type="text" formControlName="coffeeName"
-                         placeholder="Coffee Name" required>
-                     <input type="text" formControlName="coffeeContent"
-                         placeholder="Coffee Content" required>
-                     <input type="number" formControlName="coffeePrice"
-                         placeholder="Coffee Price" required>
-                     <button type="submit" class="submit-button" [disabled]="addCoffeeForm.invalid">Add Coffee</button>
-                 </form> -->
-                 This is the
+                 <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+                    <div>
+                      <label>Name:</label>
+                      <input type="text" formControlName="coffeeName">
+                    </div>
+                    <div>
+                      <label>Price:</label>
+                      <input type="number" formControlName="coffeePrice">
+                    </div>
+                    <div>
+                        <label>Content:</label>
+                        <input type="text" formControlName="coffeeContent">
+                      </div>
+                    <button type="submit">Save Changes</button>
+                  </form>
              </div>
          </div>
          <div class="modal-footer">
@@ -143,6 +153,7 @@
      </div>
    </div>
  </div>
+
  <!-- Success Modal -->
  <div class="modal" #successModal tabindex="-1" role="dialog" [ngStyle]="{'display': displaySuccessModal}" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -156,6 +167,7 @@
      </div>
    </div>
  </div>
+
  <!-- Delete Modal -->
  <div class="modal" #deleteModal tabindex="-1" role="dialog" [ngStyle]="{'display': displayDeleteModal}" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
