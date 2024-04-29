@@ -1,0 +1,16 @@
+html,
+body {
+    height: 100%;
+    position: relative;
+    /* Style to position the snack bar fixed at the top */
+
+
+}
+.mat-snack-bar-container {
+    position: fixed;
+    top: 0;
+    left: 50%; /* Adjust as needed */
+    transform: translateX(-50%);
+    z-index: 1000; /* Adjust as needed to ensure it's above other elements */
+    width: 100%; /* Ensure it spans the full width */
+  }

@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { CommonModule } from '@angular/common';
 import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from '@angular/material/snack-bar';
 
+
 @Component({
   selector: 'app-coffee-page',
   templateUrl: './coffee-page.component.html',
@@ -23,9 +24,11 @@ export class CoffeePageComponent {
   selectedCoffee: any;
   editForm!: FormGroup;
   successMessage: string = ''
-  durationInSeconds = 5
+  durationInSeconds = 200
   horizontalPosition: MatSnackBarHorizontalPosition = 'end';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
+  currentItem = 'Television';
+  
 
 
   @ViewChild('createModal') createModal: any;
@@ -53,7 +56,8 @@ export class CoffeePageComponent {
 
   ngOnInit(): void {
     this.getAllCoffee();
-    this.alertSnackBar("successful")
+    this.alertSnackBar("successful");
+    this._snackBar.open('test', 'close', { panelClass: 'positioned-snackbar', verticalPosition: 'top'});
   }
 
 // Filter products based on the product name
@@ -101,7 +105,7 @@ openEditPopup(coffee: any) {
     coffeeContent: coffee.coffeeContent
   });
 }
-  onSubmit() {
+onSubmit() {
     if (this.editForm.valid) {
       const editedCoffeeData = this.editForm.value;
       const coffeeId = this.selectedCoffee.id;
@@ -117,7 +121,7 @@ openEditPopup(coffee: any) {
         }
      })
     }
-  }
+}
   
 // Create a coffee
   AddCoffee(): void {
@@ -129,7 +133,7 @@ openEditPopup(coffee: any) {
           this.closePopup();
           this.addCoffeeForm.reset();
           this.openSuccessModal();
-          this.openSnackBar("Coffee Added Successfully!", "")
+          this.alertSnackBar("Coffee Added Successfully!")
         },
         error: (error) => {
           console.log("Error adding coffee:", error)
@@ -177,13 +181,28 @@ openEditPopup(coffee: any) {
       duration: this.durationInSeconds * 1000,
     });
   }
+  
   alertSnackBar(message: string, horizontalPosition: any = 'right', verticalPosition: any = 'top'): void {
     this.snackBar.open(message, 'Okay', {
       horizontalPosition: horizontalPosition,
       verticalPosition: verticalPosition,
-      duration: 8000
+      duration: 200000
     });
   }
-  
-  
+
+// addToCart(product: any) {
+//   this.coffeeServices.addToCart(product).subscribe({
+//     next: (res) => {
+//       console.log('Product added to cart', res);
+//     },
+//     error: (err) => {
+//       console.log('Error adding to cart', err);
+//     }
+//   });
+// }
+
+
+  addToCart(coffeeId: number) {
+   console.log("coffeeId", coffeeId)
+  }
 }

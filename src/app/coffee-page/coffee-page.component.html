@@ -21,7 +21,7 @@
             <img src="../../assets/coffee-landing.png" alt class="coffee-image">
         </div>
     </div>
-    
+
     <!-- Products section -->
     <div class="productSection">
         <img src="../../assets/coffee-seeds.png" alt class="coffee-seeds">
@@ -74,12 +74,11 @@
                 <div class="product-details">
                     <p class="coffee-name">{{coffee.coffeeName}}</p>
                     <p class="coffee-content">{{coffee.coffeeContent}}</p>
-                    <p>{{coffee.coffeePrice}}</p>
+                    <p>${{coffee.coffeePrice}}</p>
                     <div>
                         <small-button [buttonText]="'Edit'" (click)="openEditPopup(coffee)" ></small-button>
-                        <delete-button [buttonText]="'Delete'"
-                            (click)="deleteSelectedCoffee(coffee.id)">
-                        </delete-button>
+                        <delete-button [buttonText]="'Delete'" (click)="deleteSelectedCoffee(coffee.id)"></delete-button>
+                        <small-button [buttonText]="'Add To Cart'" (click)="addToCart(coffee.id)" ></small-button>
                     </div>
                     <!-- <secondary-button [buttonText]="'Add coffee'" (click)="openPopup()"></secondary-button> -->
                    
@@ -178,8 +177,9 @@
              <button type="button" class="btn btn-danger" (click)="closeDeleteModal()">Close</button>
          </div>
      </div>
- </div>
+    </div>
+   </div>
 </div>
 </div>
-</div>
+<app-cart-page [item]="currentItem"></app-cart-page>
 </section>

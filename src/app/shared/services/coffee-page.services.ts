@@ -27,6 +27,7 @@ export class CoffeeServices{
     addCoffee(data: any): Observable<any> {
         return this.httpClient.post<any>(`${this.baseUrl}/coffeeProducts` , data);
     }
-
-
+    // addToCart(data: any): Observable<any> {
+    //     return this.httpClient.post<any>(`${this.baseUrl}/cartProducts` , data);
+    // }
 }

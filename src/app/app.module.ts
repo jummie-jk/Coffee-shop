@@ -20,6 +20,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CartComponent } from './coffee-page/cart/cart-page.component';
+
 
 
 
@@ -36,7 +38,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SmallButtonComponent,
     DeleteButtonComponent,
     NavbarComponent,
-    CoffeePageComponent
+    CoffeePageComponent,
+    CartComponent
     
     
   ],

@@ -38,7 +38,7 @@
     justify-content: center;
     align-items: center;
     .fakedb{
-      margin: 3rem 0;
+      margin-top: 3rem;
       font-size: 2rem;
     }
 
@@ -47,6 +47,7 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 4rem;
+      margin-top: 2rem;
      
      
 
@@ -163,5 +164,4 @@ form {
     }
   }
 }
-
 }
