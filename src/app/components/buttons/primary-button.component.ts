@@ -1,9 +1,9 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-primary-button',
-  template: `<button class="primary">{{ buttonText }}</button>`,
-  styles: [`.primary{
+    selector: 'app-primary-button',
+    template: `<button class="primary">{{ buttonText }}</button>`,
+    styles: [`.primary{
     width: 134px;
     height: 48px;
     border-radius: 24px;
@@ -16,7 +16,8 @@ import { Component, Input } from '@angular/core';
   p {
     font-size: 18px;
     color: blue;
-  }`]
+  }`],
+    standalone: true
 })
 export class PrimaryButtonComponent {
     @Input() buttonText: string = 'primary'; 

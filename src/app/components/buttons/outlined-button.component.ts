@@ -1,9 +1,9 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'outlined-button',
-  template: `<button class="outlined">{{buttonText}}</button>`,
-  styles: [`.outlined {
+    selector: 'outlined-button',
+    template: `<button class="outlined">{{buttonText}}</button>`,
+    styles: [`.outlined {
     border-radius: 12px;
     padding: 0.8rem 1.2rem;
     cursor: pointer;
@@ -16,7 +16,8 @@ import { Component, Input } from '@angular/core';
   p {
     font-size: 16px;
     color: white;
-  }`]
+  }`],
+    standalone: true
 })
 export class OutlinedButtonComponent {
     @Input() buttonText: string = 'outlined'; 

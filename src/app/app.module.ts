@@ -19,8 +19,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
 import { CartComponent } from './coffee-page/cart/cart-page.component';
+import { MessageService } from 'primeng/api';
+import { ToastrModule } from 'ngx-toastr';
+import { provideToastr } from 'ngx-toastr';
 
 
 
@@ -28,38 +31,33 @@ import { CartComponent } from './coffee-page/cart/cart-page.component';
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomePageComponent,
-    TopbarComponent,
-    PrimaryButtonComponent,
-    SecondaryButtonComponent,
-    OutlinedButtonComponent,
-    SmallButtonComponent,
-    DeleteButtonComponent,
-    NavbarComponent,
-    CoffeePageComponent,
-    CartComponent
+    declarations: [AppComponent],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        CommonModule,
+        BrowserAnimationsModule,
+        HomePageComponent,
+        TopbarComponent,
+        PrimaryButtonComponent,
+        SecondaryButtonComponent,
+        OutlinedButtonComponent,
+        SmallButtonComponent,
+        DeleteButtonComponent,
+        NavbarComponent,
+        CoffeePageComponent,
+        CartComponent,
+        
+        
+        
+    ],
+    providers: [
+      provideAnimations(), // required animations providers
+      provideToastr(), // Toastr providers
+    ],
+    bootstrap: [AppComponent],
     
-    
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    CommonModule,
-     MatFormFieldModule, 
-     FormsModule, 
-     MatInputModule, 
-     MatButtonModule,
-     MatSnackBarModule,
-     BrowserAnimationsModule,
-     MatSnackBarModule
-  
-
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
 })
 export class AppModule { }

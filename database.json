@@ -1,13 +1,6 @@
 {
   "coffeeProducts": [
     {
-      "id": "7",
-      "coffeeImage": "../../assets/coffee-b.png",
-      "coffeeName": "Espresso",
-      "coffeeContent": "50% Milk and 70% coffee",
-      "coffeePrice": 80
-    },
-    {
       "coffeeName": "Latte",
       "coffeeContent": "All black",
       "coffeePrice": 23,
@@ -26,34 +19,6 @@
       "coffeeName": "sdfgh",
       "coffeeContent": "szdxfcgvh",
       "coffeePrice": 23,
-      "coffeeImage": "../../assets/coffee-a.png"
-    },
-    {
-      "id": "5d1a",
-      "coffeeName": "My coffee",
-      "coffeeContent": "100% black",
-      "coffeePrice": 50,
-      "coffeeImage": "../../assets/coffee-a.png"
-    },
-    {
-      "coffeeName": "weddjj",
-      "coffeeContent": "dsx",
-      "coffeePrice": 23,
-      "coffeeImage": "../../assets/coffee-a.png",
-      "id": "822d"
-    },
-    {
-      "id": "1304",
-      "coffeeName": "qesa",
-      "coffeeContent": "asd",
-      "coffeePrice": 1,
-      "coffeeImage": "../../assets/coffee-a.png"
-    },
-    {
-      "id": "325a",
-      "coffeeName": "wds",
-      "coffeeContent": "reds",
-      "coffeePrice": 2,
       "coffeeImage": "../../assets/coffee-a.png"
     }
   ]

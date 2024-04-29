@@ -2,16 +2,35 @@ import { Component, ViewChild } from '@angular/core';
 import { coffeeData } from '../shared/data/coffee-data';
 import { CoffeeServices } from '../shared/services/coffee-page.services';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from '@angular/material/snack-bar';
-
+import { CommonModule, NgIf, NgFor, NgStyle } from '@angular/common';
+import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarModule, MatSnackBarVerticalPosition} from '@angular/material/snack-bar';
+import { CartComponent } from './cart/cart-page.component';
+import { DeleteButtonComponent } from '../components/buttons/delete-button.component';
+import { SmallButtonComponent } from '../components/buttons/small-button.component';
+import { OutlinedButtonComponent } from '../components/buttons/outlined-button.component';
+import { SecondaryButtonComponent } from '../components/buttons/secondary-button.component';
+import { NavbarComponent } from '../components/navbar/navbar.component';
+import { MessageService } from 'primeng/api';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
-  selector: 'app-coffee-page',
-  templateUrl: './coffee-page.component.html',
-  styleUrls: ['./coffee-page.component.scss'],
-  // standalone: true,
-  // imports: [CommonModule, MatFormFieldModule, FormsModule, MatInputModule, MatButtonModule,],
+    selector: 'app-coffee-page',
+    templateUrl: './coffee-page.component.html',
+    styleUrls: ['./coffee-page.component.scss'],
+    standalone: true,
+    providers: [MessageService],
+    imports: [
+        NavbarComponent,
+        SecondaryButtonComponent,
+        OutlinedButtonComponent,
+        SmallButtonComponent,
+        DeleteButtonComponent,
+        NgStyle,
+        ReactiveFormsModule,
+        CartComponent,
+        CommonModule,
+        FormsModule,
+    ],
 })
 export class CoffeePageComponent {
   coffeeProducts = coffeeData;
@@ -37,8 +56,8 @@ export class CoffeePageComponent {
   constructor(
     private coffeeServices: CoffeeServices,
     private fb: FormBuilder, 
-    private _snackBar: MatSnackBar, 
-    private snackBar: MatSnackBar,
+    private toastr: ToastrService
+
    ){
     this.addCoffeeForm = this.fb.group({
       coffeeName: ['', Validators.required],
@@ -56,8 +75,6 @@ export class CoffeePageComponent {
 
   ngOnInit(): void {
     this.getAllCoffee();
-    this.alertSnackBar("successful");
-    this._snackBar.open('test', 'close', { panelClass: 'positioned-snackbar', verticalPosition: 'top'});
   }
 
 // Filter products based on the product name
@@ -87,8 +104,9 @@ export class CoffeePageComponent {
       next: (res) => {
         this.deleteCoffee = res;
         console.log("Coffee Deleted: res")
-        this.openDeleteModal();
+        this.closeDeleteModal();
         this.getAllCoffee();
+        this.showDeleted()
       },
       error: (error) => {
         console.log("Error deleting", error)
@@ -132,8 +150,7 @@ onSubmit() {
           this.getAllCoffee();
           this.closePopup();
           this.addCoffeeForm.reset();
-          this.openSuccessModal();
-          this.alertSnackBar("Coffee Added Successfully!")
+          this.showSuccess()
         },
         error: (error) => {
           console.log("Error adding coffee:", error)
@@ -154,13 +171,7 @@ onSubmit() {
   closePopup() { 
     this.displayCreateModal = "none"; 
   } 
-  // Success modal
-  openSuccessModal() { 
-    this.displaySuccessModal= "block"; 
-  } 
-  closeSuccessModal() { 
-    this.displaySuccessModal = "none"; 
-  } 
+
   // Modal for delete
   openDeleteModal() { 
     this.displayDeleteModal = "block"; 
@@ -172,24 +183,6 @@ onSubmit() {
   closeEditPopup() { 
     this.displayEditModal = "none"; 
   } 
-
-// Alert: Not working as espected: TODO
-  openSnackBar(message: string, action: string) {
-    this._snackBar.open(message, action, {
-      horizontalPosition: this.horizontalPosition,
-      verticalPosition: this.verticalPosition,
-      duration: this.durationInSeconds * 1000,
-    });
-  }
-  
-  alertSnackBar(message: string, horizontalPosition: any = 'right', verticalPosition: any = 'top'): void {
-    this.snackBar.open(message, 'Okay', {
-      horizontalPosition: horizontalPosition,
-      verticalPosition: verticalPosition,
-      duration: 200000
-    });
-  }
-
 // addToCart(product: any) {
 //   this.coffeeServices.addToCart(product).subscribe({
 //     next: (res) => {
@@ -201,8 +194,17 @@ onSubmit() {
 //   });
 // }
 
-
   addToCart(coffeeId: number) {
    console.log("coffeeId", coffeeId)
   }
+  showSuccess() {
+    this.toastr.success('Congratulations, your coffee order was added sucessfully!', '');
+  }
+  showfailed() {
+    this.toastr.error('Your order has failed, please try again!', '');
+  }
+  showDeleted() {
+    this.toastr.warning('Coffee has been deleted!', '');
+  }
+
 }

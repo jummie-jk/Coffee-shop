@@ -1,9 +1,9 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'delete-button',
-  template: `<button class="small">{{buttonText}}</button>`,
-  styles: [`.small {
+    selector: 'delete-button',
+    template: `<button class="small">{{buttonText}}</button>`,
+    styles: [`.small {
     border-radius: 24px;
     padding: 0.5rem 0.7rem;
     cursor: pointer;
@@ -17,7 +17,8 @@ import { Component, Input } from '@angular/core';
   p {
     font-size: 12px;
     color: white;
-  }`]
+  }`],
+    standalone: true
 })
 export class DeleteButtonComponent {
     @Input() buttonText: string = 'Delete'; 
