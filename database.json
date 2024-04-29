@@ -15,10 +15,24 @@
       "coffeeImage": "../../assets/coffee-a.png"
     },
     {
-      "id": "e74f",
-      "coffeeName": "sdfgh",
+      "coffeeName": "Cappucino",
       "coffeeContent": "szdxfcgvh",
       "coffeePrice": 23,
+      "coffeeImage": "../../assets/coffee-a.png",
+      "id": "e74f"
+    },
+    {
+      "id": "b1b0",
+      "coffeeName": "latte",
+      "coffeeContent": "All black",
+      "coffeePrice": 30,
+      "coffeeImage": "../../assets/coffee-a.png"
+    },
+    {
+      "id": "b4fc",
+      "coffeeName": "Cappucino",
+      "coffeeContent": "All black",
+      "coffeePrice": 20,
       "coffeeImage": "../../assets/coffee-a.png"
     }
   ]

@@ -25,7 +25,6 @@ import { ToastrService } from 'ngx-toastr';
         OutlinedButtonComponent,
         SmallButtonComponent,
         DeleteButtonComponent,
-        NgStyle,
         ReactiveFormsModule,
         CartComponent,
         CommonModule,
@@ -37,18 +36,11 @@ export class CoffeePageComponent {
   filter: string = '';
   allCoffee: any;
   deleteCoffee: any;
-  modalService: any;
   Id!: number;
   addCoffeeForm!: FormGroup;
   selectedCoffee: any;
   editForm!: FormGroup;
-  successMessage: string = ''
-  durationInSeconds = 200
-  horizontalPosition: MatSnackBarHorizontalPosition = 'end';
-  verticalPosition: MatSnackBarVerticalPosition = 'top';
   currentItem = 'Television';
-  
-
 
   @ViewChild('createModal') createModal: any;
   @ViewChild('editModal') editModal: any;  
@@ -93,6 +85,7 @@ export class CoffeePageComponent {
       },
       error:(error) => {
         console.log("Error gettingg products:" , error)
+        this.showfailed()
       }
     }
     )
@@ -110,6 +103,7 @@ export class CoffeePageComponent {
       },
       error: (error) => {
         console.log("Error deleting", error)
+        this.showfailed()
       }
     })
   }
@@ -131,16 +125,17 @@ onSubmit() {
         next: (data) => {
           console.log('Coffee updated successfully:', data);
           this.getAllCoffee();
+          this.closeEditPopup();
+          this.showEditSuccess();
           this.editForm.reset();
-          this.closeEditPopup()
         },
         error: (error) => {
           console.log("Error adding coffee:", error)
+          this.showfailed()
         }
      })
     }
 }
-  
 // Create a coffee
   AddCoffee(): void {
     if(this.addCoffeeForm.valid){
@@ -154,10 +149,25 @@ onSubmit() {
         },
         error: (error) => {
           console.log("Error adding coffee:", error)
+          this.showfailed()
         }
       })
     }
   } 
+  // addToCart(product: any) {
+//   this.coffeeServices.addToCart(product).subscribe({
+//     next: (res) => {
+//       console.log('Product added to cart', res);
+//     },
+//     error: (err) => {
+//       console.log('Error adding to cart', err);
+//     }
+//   });
+// }
+
+addToCart(coffeeId: number) {
+  console.log("coffeeId", coffeeId)
+ }
 
   // Modals
   displayCreateModal = "none";
@@ -183,25 +193,14 @@ onSubmit() {
   closeEditPopup() { 
     this.displayEditModal = "none"; 
   } 
-// addToCart(product: any) {
-//   this.coffeeServices.addToCart(product).subscribe({
-//     next: (res) => {
-//       console.log('Product added to cart', res);
-//     },
-//     error: (err) => {
-//       console.log('Error adding to cart', err);
-//     }
-//   });
-// }
-
-  addToCart(coffeeId: number) {
-   console.log("coffeeId", coffeeId)
-  }
   showSuccess() {
     this.toastr.success('Congratulations, your coffee order was added sucessfully!', '');
   }
+  showEditSuccess() {
+    this.toastr.success('Congratulations, your changes has been added', '');
+  }
   showfailed() {
-    this.toastr.error('Your order has failed, please try again!', '');
+    this.toastr.error('Failed, please try again!', '');
   }
   showDeleted() {
     this.toastr.warning('Coffee has been deleted!', '');
