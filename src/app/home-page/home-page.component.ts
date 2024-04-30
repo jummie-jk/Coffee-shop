@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { ICoffeeData } from '../shared/interfaces/coffee-page';
 import { CoffeeDetailsComponent } from '../coffee-details/coffee-details.component';
 import { CartService } from '../shared/services/cart.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
     selector: 'app-home-page',
@@ -26,13 +27,17 @@ export class HomePageComponent {
 
   constructor(
     private router: Router,
-    private cartService: CartService
+    private cartService: CartService,
+    private toastr: ToastrService
 
   ) {}
 
-  
   addToCart(product: ICoffeeData){
     this.cartService.add(product)
+
+  }
+  showSuccess() {
+    this.toastr.success('Your coffee has been added,check your to cart!', '');
   }
 
 

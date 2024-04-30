@@ -1,0 +1,46 @@
+
+$primary-color: #432010;
+
+@mixin main-text {
+  font-size: 3rem;
+  padding-bottom: 1.5rem;
+  font-weight: bold;
+  color: $primary-color;
+}
+.section{
+    margin: 5rem;
+.cart-main-text{
+    @include main-text
+}
+.products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4rem;
+    li{
+
+        list-style: none;
+    }
+    .product-image {
+      border-radius: 15px 15px 0 0;
+      width: 240px;
+      height: auto;
+      object-fit: contain;
+      box-shadow: 4px 0px 4px 0px rgba(0, 0, 0, 0.1);
+      padding: 0;
+      margin: 0;
+    }
+    .product-details {
+      background-color: #FFF9F1;
+      text-align: center;
+      margin: 0;
+      padding: 1rem;
+    }
+    .coffee-name{
+      font-weight: bold;
+    }
+    .coffee-content{
+      margin: 0.5rem 0;
+    }
+
+  } 
+}

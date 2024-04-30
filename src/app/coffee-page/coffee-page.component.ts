@@ -154,21 +154,7 @@ onSubmit() {
       })
     }
   } 
-  // addToCart(product: any) {
-//   this.coffeeServices.addToCart(product).subscribe({
-//     next: (res) => {
-//       console.log('Product added to cart', res);
-//     },
-//     error: (err) => {
-//       console.log('Error adding to cart', err);
-//     }
-//   });
-// }
-
-addToCart(coffeeId: number) {
-  console.log("coffeeId", coffeeId)
- }
-
+ 
   // Modals
   displayCreateModal = "none";
   displayEditModal = "none";
@@ -181,7 +167,6 @@ addToCart(coffeeId: number) {
   closePopup() { 
     this.displayCreateModal = "none"; 
   } 
-
   // Modal for delete
   openDeleteModal() { 
     this.displayDeleteModal = "block"; 
