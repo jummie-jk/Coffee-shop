@@ -38,16 +38,10 @@
             <!-- If there is a coffee product available display it and iterate through the product array -->
             <div class="product-div">
                 <div *ngIf="coffeeProducts" class="products">
-                    <div *ngFor="let coffee of  coffeeProducts">
-                        <img src={{coffee.coffeeImage}} alt="coffee-image"
-                            class="product-image">
-                        <div class="product-details">
-                            <p class="coffee-name">{{coffee.coffeeName}}</p>
-                            <p class="coffee-content">{{coffee.coffeeContent}}</p>
-                            <p>{{coffee.coffeePrice}}</p>
-                            <small-button [buttonText]="'Order now!'"></small-button>
-                        </div>
-                    </div>
+                    <li *ngFor="let coffee of coffeeProducts">
+                        <!-- Passing data down from child component(coffee-details) -->
+                        <app-coffee-details [coffee] ="coffee" (buy)="addToCart(coffee)"></app-coffee-details>
+                    </li>
                 </div>
             </div>
             </div>
@@ -63,5 +57,6 @@
         <p class="coffee-text-sub"> We don’t just make your coffee, we make your day!</p>
     </div>
   </section>
+ 
 
 </main>

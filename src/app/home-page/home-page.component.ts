@@ -4,19 +4,36 @@ import { TopbarComponent } from '../components/topbar/topbar.component';
 import { SmallButtonComponent } from '../components/buttons/small-button.component';
 import { coffeeData } from '../shared/data/coffee-data';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+import { ICoffeeData } from '../shared/interfaces/coffee-page';
+import { CoffeeDetailsComponent } from '../coffee-details/coffee-details.component';
+import { CartService } from '../shared/services/cart.service';
 
 @Component({
     selector: 'app-home-page',
     templateUrl: './home-page.component.html',
     styleUrls: ['./home-page.component.scss'],
     standalone: true,
-    imports: [TopbarComponent, PrimaryButtonComponent, SmallButtonComponent, CommonModule]
+    imports: [TopbarComponent, PrimaryButtonComponent, SmallButtonComponent, CommonModule, CoffeeDetailsComponent]
 })
 export class HomePageComponent {
   start: boolean = false
   text: string = "Coffee"
   coffeeProducts = coffeeData;
+  cart: ICoffeeData[] = []
 
+
+
+  constructor(
+    private router: Router,
+    private cartService: CartService
+
+  ) {}
+
+  
+  addToCart(product: ICoffeeData){
+    this.cartService.add(product)
+  }
 
 
 

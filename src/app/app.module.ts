@@ -20,10 +20,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
-import { CartComponent } from './coffee-page/cart/cart-page.component';
+import { CartComponent } from './cart/cart-page.component';
 import { MessageService } from 'primeng/api';
 import { ToastrModule } from 'ngx-toastr';
 import { provideToastr } from 'ngx-toastr';
+import { CoffeeDetailsComponent } from './coffee-details/coffee-details.component';
 
 
 

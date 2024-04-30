@@ -1,10 +1,10 @@
 import { Component, ViewChild } from '@angular/core';
 import { coffeeData } from '../shared/data/coffee-data';
-import { CoffeeServices } from '../shared/services/coffee-page.services';
+import { CoffeeServices } from '../shared/services/coffee-page.service';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule, NgIf, NgFor, NgStyle } from '@angular/common';
 import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarModule, MatSnackBarVerticalPosition} from '@angular/material/snack-bar';
-import { CartComponent } from './cart/cart-page.component';
+import { CartComponent } from '../cart/cart-page.component';
 import { DeleteButtonComponent } from '../components/buttons/delete-button.component';
 import { SmallButtonComponent } from '../components/buttons/small-button.component';
 import { OutlinedButtonComponent } from '../components/buttons/outlined-button.component';
