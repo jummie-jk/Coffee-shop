@@ -16,7 +16,7 @@
     },
     {
       "coffeeName": "Cappucino",
-      "coffeeContent": "szdxfcgvh",
+      "coffeeContent": "Milk + Coffee",
       "coffeePrice": 23,
       "coffeeImage": "../../assets/coffee-a.png",
       "id": "e74f"
@@ -26,13 +26,6 @@
       "coffeeName": "latte",
       "coffeeContent": "All black",
       "coffeePrice": 30,
-      "coffeeImage": "../../assets/coffee-a.png"
-    },
-    {
-      "id": "b4fc",
-      "coffeeName": "Cappucino",
-      "coffeeContent": "All black",
-      "coffeePrice": 20,
       "coffeeImage": "../../assets/coffee-a.png"
     }
   ]

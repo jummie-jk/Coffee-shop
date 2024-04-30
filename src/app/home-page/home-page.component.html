@@ -13,14 +13,55 @@
         </div>
     </section>
   </section>
-  <section class="discover-section section">
-    <div>
-        <p class="discover-text-main">Discover the best coffee</p>
-        <p class="discover-text-sub">Bean Scene is a coffee shop that provides you with quality <br/> coffee that helps boost your productivity and helps build your mood. <br/>  Having a cup of coffee is good, but having a cup of real <br/>  coffee is greater. There is no doubt that you will enjoy this <br/>  coffee more than others you have ever tasted.</p>
-        <app-primary-button [buttonText]="'Learn More'"></app-primary-button>
+  <section class="section">
+    <div class="discover-section"> 
+        <div>
+            <p class="coffee-text-mainn">Discover the best coffee</p>
+            <p class="coffee-text-sub">Bean Scene is a coffee shop that provides you with quality <br/> coffee that helps boost your productivity and helps build your mood. <br/>  Having a cup of coffee is good, but having a cup of real <br/>  coffee is greater. There is no doubt that you will enjoy this <br/>  coffee more than others you have ever tasted.</p>
+            <app-primary-button [buttonText]="'Learn More'"></app-primary-button>
+        </div>
+        <div>
+            <img src="../../assets/coffe-seed-cup.png" alt="coffee-seed">
+        </div>
     </div>
-    <div>
-        <img src="../../assets/coffe-seed-cup.png" alt="coffee-seed">
+  </section>
+  <div class="enjoy">
+    <img src="../../assets/coffee_blast_left.png" alt="">
+    <section class="section">
+        <div class="enjoy-section">
+            <div>
+                <p class="coffee-text-mainn"> Enjoy a new blend of coffee style</p>
+                <p class="coffee-text-sub"> Explore all flavours of coffee with us. There is always a new cup worth experiencing</p>
+            </div>
+            <div>
+            <!-- Cofee Product card -->
+            <!-- If there is a coffee product available display it and iterate through the product array -->
+            <div class="product-div">
+                <div *ngIf="coffeeProducts" class="products">
+                    <div *ngFor="let coffee of  coffeeProducts">
+                        <img src={{coffee.coffeeImage}} alt="coffee-image"
+                            class="product-image">
+                        <div class="product-details">
+                            <p class="coffee-name">{{coffee.coffeeName}}</p>
+                            <p class="coffee-content">{{coffee.coffeeContent}}</p>
+                            <p>{{coffee.coffeePrice}}</p>
+                            <small-button [buttonText]="'Order now!'"></small-button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+    <div class="blast-right">
+        <img src="../../assets/coffee_blast_right.png" alt="" class="blast">
     </div>
-</section>
+  </div>
+  <section class="section">
+    <div class="different-section">
+        <p class="coffee-text-mainn">Why are we different?</p>
+        <p class="coffee-text-sub"> We don’t just make your coffee, we make your day!</p>
+    </div>
+  </section>
+
 </main>

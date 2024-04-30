@@ -1,8 +1,8 @@
-.main {
-  $primary-color: #432010;
-  $primary-color-dark: #0056b3;
-  $input-border-color: #ccc;
 
+  $primary-color: #432010;
+  $primary-color-dark: #707070;
+  $input-border-color: #ccc;
+  
   @mixin input-styles {
     width: 100%;
     padding: 10px;
@@ -17,7 +17,26 @@
     flex-direction: row;
     justify-content: space-between;
   }
+  @mixin main-text {
+    font-size: 3rem;
+    padding-bottom: 1.5rem;
+    font-weight: bold;
+    color: $primary-color;
+  }
+  @mixin sub-text{
+    font-size: 22px;
+    padding-bottom: 1.5rem;
+    line-height: 34px;
+    color:  $primary-color-dark;
+  }
+  @mixin flex-center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
+.main {
   .home-page{
     background-image: url("../../assets/coffee_image.png");
     height: 100vh;
@@ -75,24 +94,62 @@
       }
     }
   }
+
   .section{
-    margin: 3rem;
-  }
-  .discover-section{
-    @include flex-between;
-    .discover-text-main{
-        font-size: 3rem;
-        padding-bottom: 1.5rem;
-        font-weight: bold;
-        color: #603809;
+    margin: 2rem;
+    .coffee-text-mainn{
+        @include main-text; 
     }
-    .discover-text-sub{
-        font-size: 22px;
-        padding-bottom: 1.5rem;
-        line-height: 34px;
+    .coffee-text-sub{
+        @include sub-text;
+    }
+    .discover-section{
+        @include flex-between;
+    }
+    .different-section{
+        @include flex-center
+      }
+    .enjoy-section{
+        @include flex-center;
+        .products {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 4rem;
+            .product-image {
+              border-radius: 15px 15px 0 0;
+              width: 240px;
+              height: auto;
+              object-fit: contain;
+              box-shadow: 4px 0px 4px 0px rgba(0, 0, 0, 0.1);
+              padding: 0;
+              margin: 0;
+            }
+            .product-details {
+              background-color: #FFF9F1;
+              text-align: center;
+              margin: 0;
+              padding: 1rem;
+            }
+            .coffee-name{
+              font-weight: bold;
+            }
+            .coffee-content{
+              margin: 0.5rem 0;
+            }
+      
+          } 
     }
   }
+  .enjoy{
+    .blast-right{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-end;
+    }
 }
+}
+
 
 
 
