@@ -25,6 +25,7 @@ import { MessageService } from 'primeng/api';
 import { ToastrModule } from 'ngx-toastr';
 import { provideToastr } from 'ngx-toastr';
 import { CoffeeDetailsComponent } from './coffee-details/coffee-details.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 
 
@@ -50,6 +51,7 @@ import { CoffeeDetailsComponent } from './coffee-details/coffee-details.componen
         NavbarComponent,
         CoffeePageComponent,
         CartComponent,
+        CKEditorModule
         
         
         

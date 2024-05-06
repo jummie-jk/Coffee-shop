@@ -9,19 +9,23 @@ import { ICoffeeData } from '../shared/interfaces/coffee-page';
 import { CoffeeDetailsComponent } from '../coffee-details/coffee-details.component';
 import { CartService } from '../shared/services/cart.service';
 import { ToastrService } from 'ngx-toastr';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+
 
 @Component({
     selector: 'app-home-page',
     templateUrl: './home-page.component.html',
     styleUrls: ['./home-page.component.scss'],
     standalone: true,
-    imports: [TopbarComponent, PrimaryButtonComponent, SmallButtonComponent, CommonModule, CoffeeDetailsComponent]
+    imports: [TopbarComponent, PrimaryButtonComponent, SmallButtonComponent, CommonModule, CoffeeDetailsComponent, CKEditorModule]
 })
 export class HomePageComponent {
   start: boolean = false
   text: string = "Coffee"
   coffeeProducts = coffeeData;
-  cart: ICoffeeData[] = []
+  cart: ICoffeeData[] = [];
+  public Editor = ClassicEditor;
 
 
 
@@ -32,6 +36,8 @@ export class HomePageComponent {
 
   ) {}
 
+  
+
   addToCart(product: ICoffeeData){
     this.cartService.add(product)
 
@@ -39,6 +45,8 @@ export class HomePageComponent {
   showSuccess() {
     this.toastr.success('Your coffee has been added,check your to cart!', '');
   }
+
+  
 
 
 
