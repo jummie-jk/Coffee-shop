@@ -52,7 +52,7 @@
                 <div class="product-details">
                     <p class="coffee-name">{{coffee.coffeeName}}</p>
                     <p class="coffee-content">{{coffee.coffeeContent}}</p>
-                    <p>{{coffee.coffeePrice}}</p>
+                    <p>₦{{coffee.coffeePrice}}</p>
                     <small-button [buttonText]="'Order now!'"></small-button>
                 </div>
             </div>
@@ -71,7 +71,7 @@
                 <div class="product-details">
                     <p class="coffee-name">{{coffee.coffeeName}}</p>
                     <p class="coffee-content">{{coffee.coffeeContent}}</p>
-                    <p>${{coffee.coffeePrice}}</p>
+                    <p>₦{{coffee.coffeePrice}}</p>
                     <div>
                         <small-button [buttonText]="'Edit'" (click)="openEditPopup(coffee)" ></small-button>
                         <delete-button [buttonText]="'Delete'" (click)="openDeleteModal()"></delete-button>

@@ -99,6 +99,13 @@
       "coffeeName": "Latte",
       "coffeeContent": "50% Milk and 50% coffee",
       "coffeePrice": 50
+    },
+    {
+      "id": 6,
+      "coffeeImage": "../../assets/coffee-f.png",
+      "coffeeName": "Espresso",
+      "coffeeContent": "50% Milk and 70% coffee",
+      "coffeePrice": 80
     }
   ]
 }

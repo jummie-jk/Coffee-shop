@@ -5,7 +5,7 @@
    <div class="product-details">
     <p class="coffee-name">{{coffee.coffeeName}}</p>
     <p class="coffee-content">{{coffee.coffeeContent}}</p>
-    <p>{{coffee.coffeePrice | currency}}</p>
+    <p>{{coffee.coffeePrice | currency: '₦'}}</p>
     <small-button [buttonText]="'Order now!'"></small-button>
     <small-button [buttonText]="'Add to cart'" (click)="buyCoffeeClicked(coffee)"></small-button>
 </div>
