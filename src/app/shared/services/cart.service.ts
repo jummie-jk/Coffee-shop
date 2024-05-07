@@ -25,7 +25,7 @@ export class CartService {
   removeCart(id: number): Observable<any> {
     return this.httpClient.delete(`${this.baseUrl}/cartProducts/${id}`);
 }
-removeFromCart(id: number): Observable<any> {
-  return this.httpClient.delete(`${this.baseUrl}/cartProducts/${id}`);
-}
+  // removeFromCart(id: number): Observable<any> {
+  //   return this.httpClient.delete(`${this.baseUrl}/cartProducts/${id}`);
+  // }
 }

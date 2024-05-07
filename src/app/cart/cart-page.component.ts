@@ -42,10 +42,12 @@ export class CartComponent implements OnInit {
         })
     } 
     removeFromCart(Id: number){
+        console.log("Id:", Id);
         this.cartService.removeCart(Id).subscribe({
           next: (res) => {
             this.deletedCartItem = res;
-            console.log("Coffee Deleted: res")
+            console.log("deleted item", this.deletedCartItem)
+            console.log("Coffee Deleted:", res)
            
           },
           error: (error) => {

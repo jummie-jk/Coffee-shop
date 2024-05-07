@@ -26,6 +26,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { provideToastr } from 'ngx-toastr';
 import { CoffeeDetailsComponent } from './coffee-details/coffee-details.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { Angular4PaystackModule } from "angular4-paystack";
 
 
 
@@ -51,7 +52,7 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
         NavbarComponent,
         CoffeePageComponent,
         CartComponent,
-    
+        Angular4PaystackModule.forRoot("pk_test_e13619da83880ce21a33125f87dfebd6a6a9a509"),
         
         
     ],

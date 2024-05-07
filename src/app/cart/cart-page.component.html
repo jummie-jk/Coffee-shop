@@ -1,21 +1,36 @@
 <app-navbar [style.background-color]="'#000'"></app-navbar>
 <section class="section">
-    <p class="cart-main-text">Carts</p>
+    <div class="cart-price-text">
+        <p class="cart-main-text">Carts</p>
+        <p class="cart-price-total"> Total Cart Price: {{ totalCartPrice | currency }}</p>
+    </div>
+    
     <div class="products">
         <li *ngFor="let cart of allCartProducts" >
-            <div>
-                <img src={{cart.coffeeImage}} alt="coffee-image" class="product-image">
+            <div class="">
                 <div class="product-details">
+                    <div>
+                        <img src={{cart.coffeeImage}} alt="coffee-image" class="product-image">
+                        <div>
+                            <small-button [buttonText]="'Remove from cart'" (click)="removeFromCart(cart.id)"></small-button>
+                        </div>
+                       
+                    </div>
+                   <div>
                     <p class="coffee-name">{{cart.coffeeName}}</p>
                     <p class="coffee-content">{{cart.coffeeContent}}</p>
-                    <p>{{cart.coffeePrice | currency}}</p>
-                    <small-button [buttonText]="'Remove from cart'" (click)="removeFromCart(cart.id)"></small-button>
-                    <p>{{cart.id}}</p>
+                   </div>
+                    <div>
+                        <p>{{cart.coffeePrice | currency}}</p>
+                  
+                        <p>{{cart.id}}</p>
+                    </div>
+                  
                </div>
             </div>
         </li>
     </div>
     <div>
-        Total Cart Price: {{ totalCartPrice | currency }}
+       
       </div>
 </section>
