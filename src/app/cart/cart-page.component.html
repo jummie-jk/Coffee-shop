@@ -2,16 +2,19 @@
 <section class="section">
     <div class="cart-price-text">
         <p class="cart-main-text">Carts</p>
-        <p class="cart-price-total"> Total Cart Price: {{ totalCartPrice | currency: "₦"}}</p>
-        <angular4-paystack
-        [paystackOptions]="options"
-        [class]="'btn btn-primary'"
-        (paymentInit)="paymentInit()"
-        (onClose)="paymentFailed()"
-        (callback)="paymentSuccess($event)"
-      >
-        Pay with Paystack
-      </angular4-paystack>
+        <div>
+            <p class="cart-price-total"> Total Cart Price: {{ totalCartPrice | currency: "₦"}}</p>
+            <angular4-paystack
+            [paystackOptions]="options"
+            class="btn paystack-btn"
+            (paymentInit)="paymentInit()"
+            (onClose)="paymentFailed()"
+            (callback)="paymentSuccess($event)"
+          >
+            Pay with Paystack
+          </angular4-paystack>
+        </div>
+       
     </div>
     
     <div class="products">

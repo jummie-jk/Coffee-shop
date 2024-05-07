@@ -51,20 +51,21 @@ export class CartComponent implements OnInit {
                 this.allCartProducts = res;
                 console.log("all cart products" , this.allCartProducts)
                 this.calculateTotalCartPrice();
+                this.calculateTotalCartPrice() 
             },
             error: (err) => {
                 console.log("Error getting carts:", err)
             }
         })
     } 
-    removeFromCart(Id: number){
-        console.log("Id:", Id);
-        this.cartService.removeCart(Id).subscribe({
+    removeFromCart(id: number){
+        console.log("Id:", id);
+        this.cartService.removeCart(id).subscribe({
           next: (res) => {
             this.deletedCartItem = res;
+            this.getAllCartProducts();
             console.log("deleted item", this.deletedCartItem)
             console.log("Coffee Deleted:", res)
-           
           },
           error: (error) => {
             console.log("Error deleting", error)

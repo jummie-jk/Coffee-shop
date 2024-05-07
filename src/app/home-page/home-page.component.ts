@@ -11,6 +11,7 @@ import { CartService } from '../shared/services/cart.service';
 import { ToastrService } from 'ngx-toastr';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @Component({
@@ -18,7 +19,7 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     templateUrl: './home-page.component.html',
     styleUrls: ['./home-page.component.scss'],
     standalone: true,
-    imports: [TopbarComponent, PrimaryButtonComponent, SmallButtonComponent, CommonModule, CoffeeDetailsComponent,]
+    imports: [TopbarComponent, PrimaryButtonComponent, SmallButtonComponent, CommonModule, CoffeeDetailsComponent, ReactiveFormsModule,]
 })
 export class HomePageComponent {
   start: boolean = false
@@ -36,12 +37,11 @@ export class HomePageComponent {
 
   ) {}
 
-  
-
   addToCart(product: ICoffeeData){
-    this.cartService.add(product)
-
+    this.cartService.add(product);
+    this.showSuccess() 
   }
+
   showSuccess() {
     this.toastr.success('Your coffee has been added,check your to cart!', '');
   }

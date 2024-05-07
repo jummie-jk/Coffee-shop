@@ -1,5 +1,5 @@
 export interface ICoffeeData {
-    id: number,
+    id: string,
     coffeeImage: string,
     coffeeName: string,
     coffeeContent: string,
