@@ -3,6 +3,6 @@ export interface ICoffeeData {
     coffeeImage: string,
     coffeeName: string,
     coffeeContent: string,
-    coffeePrice: string
+    coffeePrice: number
 
 }

@@ -4,6 +4,7 @@ import { CartService } from '../shared/services/cart.service';
 import { SmallButtonComponent } from '../components/buttons/small-button.component';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from '../components/navbar/navbar.component';
+import { ICoffeeData } from '../shared/interfaces/coffee-page';
 
 @Component({
     selector: 'app-cart-page',
@@ -15,8 +16,9 @@ import { NavbarComponent } from '../components/navbar/navbar.component';
 
 export class CartComponent implements OnInit {
     @Input() item = ''; 
-    allCartProducts: any;
+    allCartProducts: any
     deletedCartItem: any;
+    totalCartPrice: number = 0;
     
     constructor(private router: Router, 
         private cartService: CartService
@@ -32,6 +34,7 @@ export class CartComponent implements OnInit {
             next: (res) => {
                 this.allCartProducts = res;
                 console.log("all cart products" , this.allCartProducts)
+                this.calculateTotalCartPrice();
             },
             error: (err) => {
                 console.log("Error getting carts:", err)
@@ -50,4 +53,12 @@ export class CartComponent implements OnInit {
           }
         })
       }
+       
+      calculateTotalCartPrice() {
+        this.totalCartPrice = this.allCartProducts.reduce((total: number, cartItem: { coffeePrice: string; }) => {
+            // Convert coffeePrice from string to number
+            const price = parseFloat(cartItem.coffeePrice);
+            return total + price;
+        }, 0);
+    }
 }

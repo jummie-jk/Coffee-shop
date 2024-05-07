@@ -18,7 +18,7 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     templateUrl: './home-page.component.html',
     styleUrls: ['./home-page.component.scss'],
     standalone: true,
-    imports: [TopbarComponent, PrimaryButtonComponent, SmallButtonComponent, CommonModule, CoffeeDetailsComponent, CKEditorModule]
+    imports: [TopbarComponent, PrimaryButtonComponent, SmallButtonComponent, CommonModule, CoffeeDetailsComponent,]
 })
 export class HomePageComponent {
   start: boolean = false

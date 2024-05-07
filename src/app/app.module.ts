@@ -51,8 +51,7 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
         NavbarComponent,
         CoffeePageComponent,
         CartComponent,
-        CKEditorModule
-        
+    
         
         
     ],
