@@ -7,6 +7,7 @@ import { NavbarComponent } from '../components/navbar/navbar.component';
 import { ICoffeeData } from '../shared/interfaces/coffee-page';
 import { PaystackOptions } from "angular4-paystack";
 import { Angular4PaystackModule } from "angular4-paystack";
+import { coffeeData } from '../shared/data/coffee-data';
 
 @Component({
     selector: 'app-cart-page',
@@ -26,6 +27,8 @@ export class CartComponent implements OnInit {
     show: boolean = false;
     message!: string;
     reference: string = "";
+    productQuantity: number = 1
+    coffeeData = coffeeData;
 
     options: PaystackOptions = {
         amount: 0,
@@ -44,7 +47,7 @@ export class CartComponent implements OnInit {
     ngOnInit() {
         this.getAllCartProducts()
     }
-
+// Get all products from cart
     getAllCartProducts(){
         this.cartService.getCart().subscribe({
             next: (res) => {
@@ -58,6 +61,8 @@ export class CartComponent implements OnInit {
             }
         })
     } 
+
+// Remove all product from cart
     removeFromCart(id: number){
         console.log("Id:", id);
         this.cartService.removeCart(id).subscribe({
@@ -72,18 +77,30 @@ export class CartComponent implements OnInit {
           }
         })
       }
-       
+      // Calculate the total cart price, convert it to a number
       calculateTotalCartPrice() {
-        this.totalCartPrice = this.allCartProducts.reduce((total: number, cartItem: { coffeePrice: string; }) => {
+        this.totalCartPrice = this.allCartProducts.reduce((total: number, cartItem: { coffeePrice: string; coffeeQuantity: number }) => {
             const price = parseFloat(cartItem.coffeePrice);
-            return total + price;
+            return total + (price * cartItem.coffeeQuantity);
         }, 0);
         console.log("total price:", this.totalCartPrice)
         this.options.amount = this.totalCartPrice * 100;
-    }
-        paymentInit() {
-            console.log("Payment is Initialized");
+      }
+      // Increase and decrease quantity
+      decreaseQuantity(cart: any) {
+        if (cart.coffeeQuantity > 1) {
+          cart.coffeeQuantity--;
+          this.calculateTotalCartPrice();
         }
+      }
+      increaseQuantity(cart: any) {
+        cart.coffeeQuantity++;
+        this.calculateTotalCartPrice()
+      }
+      // Paystack Integration
+      paymentInit() {
+            console.log("Payment is Initialized");
+      }
     
       paymentSuccess(ref: any) {
         this.message = "Payment is successful";

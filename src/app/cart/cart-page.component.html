@@ -33,13 +33,16 @@
                     <p class="coffee-content">{{cart.coffeeContent}}</p>
                    </div>
                     <div>
-                        <p>{{cart.coffeePrice | currency: '₦'}}</p>
-                        <p>{{cart.id}}</p>
+                        <p>{{cart.coffeePrice * cart.coffeeQuantity | currency: '₦'}}</p>
+                        <!-- <p>{{cart.id}}</p> -->
+                        <button (click)="decreaseQuantity(cart)">-</button>
+                        <p>{{cart.coffeeQuantity}}</p>
+                        <button (click)="increaseQuantity(cart)">+</button>  
                     </div>
-                  
                </div>
             </div>
         </li>
+        
     </div>
     <div>
        

@@ -27,43 +27,47 @@
       "coffeePrice": 12,
       "coffeeImage": "../../assets/coffee-a.png",
       "id": "5ddf"
+    },
+    {
+      "id": "c03c",
+      "coffeeName": "Cappucino",
+      "coffeeContent": "All cream",
+      "coffeePrice": 100,
+      "coffeeImage": "../../assets/coffee-a.png"
     }
   ],
   "cartProducts": [
-    {
-      "id": "4",
-      "coffeeImage": "../../assets/coffee-d.png",
-      "coffeeName": "Espresso",
-      "coffeeContent": "50% Milk and 70% coffee",
-      "coffeePrice": "80"
-    },
     {
       "id": "7",
       "coffeeImage": "../../assets/coffee-a.png",
       "coffeeName": "Macchiato",
       "coffeeContent": "50% Milk and 70% coffee",
-      "coffeePrice": 80
+      "coffeePrice": 600,
+      "coffeeQuantity": 1
     },
     {
-      "id": "4",
-      "coffeeImage": "../../assets/coffee-d.png",
-      "coffeeName": "Espresso",
+      "id": "2",
+      "coffeeImage": "../../assets/coffee-b.png",
+      "coffeeName": "Macchiato",
       "coffeeContent": "50% Milk and 70% coffee",
-      "coffeePrice": 80
+      "coffeePrice": 250,
+      "coffeeQuantity": 1
+    },
+    {
+      "id": "1",
+      "coffeeImage": "../../assets/coffee-a.png",
+      "coffeeName": "Cappucino",
+      "coffeeContent": "50% Milk and 70% coffee",
+      "coffeePrice": 300,
+      "coffeeQuantity": 1
     },
     {
       "id": "5",
       "coffeeImage": "../../assets/coffee-e.png",
       "coffeeName": "Cappucino",
       "coffeeContent": "50% Milk and 70% coffee",
-      "coffeePrice": 80
-    },
-    {
-      "id": "6",
-      "coffeeImage": "../../assets/coffee-f.png",
-      "coffeeName": "Espresso",
-      "coffeeContent": "50% Milk and 70% coffee",
-      "coffeePrice": 80
+      "coffeePrice": 800,
+      "coffeeQuantity": 1
     }
   ]
 }
