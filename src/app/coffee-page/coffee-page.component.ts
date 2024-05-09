@@ -36,9 +36,9 @@ export class CoffeePageComponent {
   filter: string = '';
   allCoffee: any;
   deleteCoffee: any;
+  selectedCoffee: any;
   Id!: number;
   addCoffeeForm!: FormGroup;
-  selectedCoffee: any;
   editForm!: FormGroup;
   currentItem = 'Television';
 
@@ -107,7 +107,7 @@ export class CoffeePageComponent {
       }
     })
   }
-// When you select the edit button, it should populate the coffee data and make a put request on submit
+// When you select the edit button, it should populate the coffee data and make a PUT request on submit
 openEditPopup(coffee: any) {
   this.selectedCoffee = coffee;
   this.displayEditModal = 'block';
@@ -117,6 +117,7 @@ openEditPopup(coffee: any) {
     coffeeContent: coffee.coffeeContent
   });
 }
+// Submit the new details edited
 onSubmit() {
     if (this.editForm.valid) {
       const editedCoffeeData = this.editForm.value;
@@ -124,6 +125,7 @@ onSubmit() {
       this.coffeeServices.updateCoffee(coffeeId, editedCoffeeData).subscribe({
         next: (data) => {
           console.log('Coffee updated successfully:', data);
+          // Id sucessful, get all products, close the modal, reset the form and show a success notification
           this.getAllCoffee();
           this.closeEditPopup();
           this.showEditSuccess();
@@ -142,6 +144,7 @@ onSubmit() {
       const coffeeData = this.addCoffeeForm.value;
       this.coffeeServices.addCoffee(coffeeData).subscribe({
         next: (res) => {
+          // When you add a new coffee, get all the coffee and close the modal. Also, reset the form and show a status notifications
           this.getAllCoffee();
           this.closePopup();
           this.addCoffeeForm.reset();
