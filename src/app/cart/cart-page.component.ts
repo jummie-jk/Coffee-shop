@@ -50,11 +50,16 @@ export class CartComponent implements OnInit {
 // Get all products from cart
     getAllCartProducts(){
         this.cartService.getCart().subscribe({
-            next: (res) => {
-                this.allCartProducts = res;
+            next: (res : any) => {
+              if (res && typeof res === 'object'){
+                this.allCartProducts = Object.values(res);
                 console.log("all cart products" , this.allCartProducts)
                 this.calculateTotalCartPrice();
                 this.calculateTotalCartPrice() 
+              }
+               else{
+                console.error("Response is not an object:", res);
+               } 
             },
             error: (err) => {
                 console.log("Error getting carts:", err)

@@ -8,22 +8,23 @@ import { Observable } from 'rxjs';
 })
 export class CartService {
   cart: ICoffeeData[] = []
-  baseUrl: string = "http://localhost:3000"
+  // baseUrl: string = "http://localhost:3000"
+  baseUrl: string = 'https://beanscene-coffeeshop-default-rtdb.firebaseio.com/cartProducts.json'
 
   constructor(private httpClient: HttpClient) { }
   
   add(product: ICoffeeData){
     this.cart.push(product);
-    this.httpClient.post('http://localhost:3000/cartProducts', product).subscribe(()=> {
+    this.httpClient.post('https://beanscene-coffeeshop-default-rtdb.firebaseio.com/cartProducts.json', product).subscribe(()=> {
       console.log(`product ${product.coffeeName} added to cart`)
     })
   }
 
   getCart(){
-    return this.httpClient.get(`${this.baseUrl}/cartProducts`)
+    return this.httpClient.get(`${this.baseUrl}`)
   }
   removeCart(id: number): Observable<any> {
-    return this.httpClient.delete(`${this.baseUrl}/cartProducts/${id}`);
+    return this.httpClient.delete(`${this.baseUrl}/${id}`);
 }
   // removeFromCart(id: number): Observable<any> {
   //   return this.httpClient.delete(`${this.baseUrl}/cartProducts/${id}`);
