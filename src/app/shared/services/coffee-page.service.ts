@@ -1,13 +1,17 @@
 import {HttpClient} from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/database';
+import { ICoffeeData } from "../interfaces/coffee-page";
 
 @Injectable({
     providedIn: 'root',
 })
 
 export class CoffeeServices{
-    baseUrl: string = "http://localhost:3000"
+    baseUrl: string = 'https://beanscene-coffeeshop-default-rtdb.firebaseio.com/coffeeProducts.json'
+    baseUrls: string = "http://localhost:3000"
+    coffeeRef!: AngularFireList<ICoffeeData>;
 
     constructor(private httpClient: HttpClient) { }
     // Service to perform CRUD )perations
@@ -17,7 +21,7 @@ export class CoffeeServices{
       }
 
     getCoffee(){
-        return this.httpClient.get(`${this.baseUrl}/coffeeProducts`)
+        return this.httpClient.get(`${this.baseUrl}`)
     }
 
     deleteCoffee(id: number): Observable<any> {
@@ -25,7 +29,7 @@ export class CoffeeServices{
     }
 
     addCoffee(data: any): Observable<any> {
-        return this.httpClient.post<any>(`${this.baseUrl}/coffeeProducts` , data);
+        return this.httpClient.post<any>(`${this.baseUrl}` , data);
     }
     // addToCart(data: any): Observable<any> {
     //     return this.httpClient.post<any>(`${this.baseUrl}/cartProducts` , data);

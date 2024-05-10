@@ -27,6 +27,10 @@ import { provideToastr } from 'ngx-toastr';
 import { CoffeeDetailsComponent } from './coffee-details/coffee-details.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { Angular4PaystackModule } from "angular4-paystack";
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { environment } from 'src/environment/environment';
+
 
 
 
@@ -53,6 +57,8 @@ import { Angular4PaystackModule } from "angular4-paystack";
         CoffeePageComponent,
         CartComponent,
         Angular4PaystackModule.forRoot("pk_test_e13619da83880ce21a33125f87dfebd6a6a9a509"),
+        AngularFireModule.initializeApp(environment.firebase),
+        AngularFireDatabaseModule
         
         
     ],

@@ -34,7 +34,7 @@ import { ToastrService } from 'ngx-toastr';
 export class CoffeePageComponent {
   coffeeProducts = coffeeData;
   filter: string = '';
-  allCoffee: any;
+  allCoffee: any[] = [];
   deleteCoffee: any;
   selectedCoffee: any;
   Id!: number;
@@ -77,19 +77,23 @@ export class CoffeePageComponent {
   
   }
 // Get all coffee
-  getAllCoffee(){
+  getAllCoffee() {
     this.coffeeServices.getCoffee().subscribe({
-      next: (res) => {
-        this.allCoffee = res;
-        console.log("All coffee data:", this.allCoffee)
+      next: (res: any) => {
+        if (res && typeof res === 'object') { 
+          this.allCoffee = Object.values(res); 
+          console.log("All coffee data:", this.allCoffee);
+        } else {
+          console.error("Response is not an object:", res);
+        }
       },
-      error:(error) => {
-        console.log("Error gettingg products:" , error)
-        this.showfailed()
+      error: (error) => {
+        console.log("Error getting products:", error);
+        this.showfailed();
       }
-    }
-    )
+    });
   }
+  
 
 // Delete selected coffee by it Id
   deleteSelectedCoffee(Id: number){
@@ -133,7 +137,8 @@ onSubmit() {
         },
         error: (error) => {
           console.log("Error adding coffee:", error)
-          this.showfailed()
+          this.showfailed();
+          this.closeEditPopup();
         }
      })
     }
@@ -143,7 +148,9 @@ onSubmit() {
     if(this.addCoffeeForm.valid){
       const coffeeData = this.addCoffeeForm.value;
       this.coffeeServices.addCoffee(coffeeData).subscribe({
-        next: (res) => {
+        next: (res: any[]) => {
+          // this.allCoffee = res;
+          this.allCoffee = Object.values(res);
           // When you add a new coffee, get all the coffee and close the modal. Also, reset the form and show a status notifications
           this.getAllCoffee();
           this.closePopup();
