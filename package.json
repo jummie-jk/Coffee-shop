@@ -36,6 +36,7 @@
     "primeng": "^17.16.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.6.2",
+    "vercel": "^34.1.10",
     "zone.js": "^0.13.3"
   },
   "devDependencies": {
