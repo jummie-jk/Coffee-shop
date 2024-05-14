@@ -10,8 +10,9 @@ import { Component, Input } from '@angular/core';
     color: white;
     background-color: #432010;
     font-size: 12px;
+    font-weight: bold;
     border: none;
-    margin-top: 1rem;
+    // margin-top: 1rem;
   }
   p {
     font-size: 12px;

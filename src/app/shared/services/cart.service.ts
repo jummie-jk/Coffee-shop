@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class CartService {
   cart: ICoffeeData[] = []
   // baseUrl: string = "http://localhost:3000"
-  baseUrl: string = 'https://beanscene-coffeeshop-default-rtdb.firebaseio.com/cartProducts.json'
+  baseUrl: string = 'https://beanscene-coffeeshop-default-rtdb.firebaseio.com/cartProducts'
 
   constructor(private httpClient: HttpClient) { }
   
@@ -21,11 +21,14 @@ export class CartService {
   }
 
   getCart(){
-    return this.httpClient.get(`${this.baseUrl}`)
+    return this.httpClient.get(`${this.baseUrl}.json`)
   }
-  removeCart(id: number): Observable<any> {
-    return this.httpClient.delete(`${this.baseUrl}/${id}`);
-}
+  removeCart(id: string): Observable<any> {
+    return this.httpClient.delete(`${this.baseUrl}/${id}.json`);
+  }
+  removeProductFromCart(id: string): Observable<any> {
+  return this.httpClient.delete(`https://coffee-shop-86d24.firebaseio.com/cartProducts/${id}`);
+  }
   // removeFromCart(id: number): Observable<any> {
   //   return this.httpClient.delete(`${this.baseUrl}/cartProducts/${id}`);
   // }

@@ -35,9 +35,9 @@
                     <div>
                         <p>{{cart.coffeePrice * cart.coffeeQuantity | currency: '₦'}}</p>
                         <!-- <p>{{cart.id}}</p> -->
-                        <button (click)="decreaseQuantity(cart)">-</button>
+                        <small-button [buttonText]="'-'"  (click)="decreaseQuantity(cart)"></small-button>
                         <p>{{cart.coffeeQuantity}}</p>
-                        <button (click)="increaseQuantity(cart)">+</button>  
+                        <small-button [buttonText]="'+'" (click)="increaseQuantity(cart)"></small-button>  
                     </div>
                </div>
             </div>

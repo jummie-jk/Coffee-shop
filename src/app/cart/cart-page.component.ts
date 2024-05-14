@@ -51,6 +51,7 @@ export class CartComponent implements OnInit {
     getAllCartProducts(){
         this.cartService.getCart().subscribe({
             next: (res : any) => {
+              console.log("All cart productsss", res)
               if (res && typeof res === 'object'){
                 this.allCartProducts = Object.values(res);
                 console.log("all cart products" , this.allCartProducts)
@@ -67,11 +68,13 @@ export class CartComponent implements OnInit {
         })
     } 
 
-// Remove all product from cart
-    removeFromCart(id: number){
+// Remove product from cart
+    removeFromCart(id: string){
         console.log("Id:", id);
         this.cartService.removeCart(id).subscribe({
+          
           next: (res) => {
+            console.log("Iddd:", id),
             this.deletedCartItem = res;
             this.getAllCartProducts();
             console.log("deleted item", this.deletedCartItem)
