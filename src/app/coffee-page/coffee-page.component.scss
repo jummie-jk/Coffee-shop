@@ -104,6 +104,11 @@
       font-size: 1.2rem;
       margin-bottom: 2rem;
     }
+    .coffee-image-new{
+      width: 100%;
+      max-width: 550px;
+      height: auto;
+    }
 
     .coffee-image {
       width: 40rem;
@@ -224,6 +229,42 @@ form {
 
   .coffee-image {
     width: 20rem;
+    height: auto;
+  }
+}
+@media (max-width: 950px) {
+  
+  .products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 4rem;
+    margin-top: 2rem;
+  }
+}
+@media (max-width: 850px) {
+  .filter{
+    margin: 0rem 0rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
+  }
+  .filter p{
+    display: none;
+  }
+  .coffee-image{
+    display: none;
+  }
+  
+  .products {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  .product-image {
+    width: 12rem !important;
     height: auto;
   }
 }

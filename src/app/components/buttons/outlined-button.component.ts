@@ -16,7 +16,14 @@ import { Component, Input } from '@angular/core';
   p {
     font-size: 16px;
     color: white;
-  }`],
+  }
+  @media (max-width: 600px) {
+        .small {
+            font-size: 10px;
+            padding: 0.1rem 0.3rem; 
+            border-radius: 7px;
+        }
+    }`],
     standalone: true
 })
 export class OutlinedButtonComponent {
