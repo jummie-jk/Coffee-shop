@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "CI=false ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -20,7 +20,9 @@
     "@angular/platform-browser": "^16.2.0",
     "@angular/platform-browser-dynamic": "^16.2.12",
     "@angular/router": "^16.2.12",
+    "@ng-bootstrap/ng-bootstrap": "^16.0.0",
     "angular4-paystack": "^3.1.4",
+    "bootstrap": "^5.3.3",
     "firebase": "^9.23.0",
     "firebase-tools": "^13.8.1",
     "ngx-toast-notifier": "^0.0.7",
