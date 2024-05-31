@@ -23,8 +23,8 @@ export class CartService {
   getCart(){
     return this.httpClient.get(`${this.baseUrl}.json`)
   }
-  removeCart(id: string): Observable<any> {
-    return this.httpClient.delete(`${this.baseUrl}/${id}.json`);
+  removeCart(id: number): Observable<any> {
+    return this.httpClient.delete(`${this.baseUrl}/${id}.json`)
   }
   removeProductFromCart(id: string): Observable<any> {
   return this.httpClient.delete(`https://coffee-shop-86d24.firebaseio.com/cartProducts/${id}`);

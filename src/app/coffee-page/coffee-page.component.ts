@@ -100,7 +100,7 @@ export class CoffeePageComponent {
     this.coffeeServices.deleteCoffee(Id).subscribe({
       next: (res) => {
         this.deleteCoffee = res;
-        console.log("Coffee Deleted: res")
+        console.log("Coffee Deleted:", this.deleteCoffee)
         this.closeDeleteModal();
         this.getAllCoffee();
         this.showDeleted()

@@ -69,22 +69,24 @@ export class CartComponent implements OnInit {
     } 
 
 // Remove product from cart
-    removeFromCart(id: string){
-        console.log("Id:", id);
-        this.cartService.removeCart(id).subscribe({
-          
-          next: (res) => {
-            console.log("Iddd:", id),
-            this.deletedCartItem = res;
-            this.getAllCartProducts();
-            console.log("deleted item", this.deletedCartItem)
-            console.log("Coffee Deleted:", res)
-          },
-          error: (error) => {
-            console.log("Error deleting", error)
-          }
-        })
+removeFromCart(id: number){
+  console.log("Id:", id);
+  this.cartService.removeCart(id).subscribe({
+    next: (res) => {
+      if (res === null) {
+        console.log("Item deleted successfully.");
+        this.getAllCartProducts(); // Refresh the list of cart products after deletion
+      } else {
+        console.log("Unexpected response from server:", res);
       }
+    },
+    error: (error) => {
+      console.log("Error deleting", error);
+    }
+  });
+}
+
+
       // Calculate the total cart price, convert it to a number
       calculateTotalCartPrice() {
         this.totalCartPrice = this.allCartProducts.reduce((total: number, cartItem: { coffeePrice: string; coffeeQuantity: number }) => {
