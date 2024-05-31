@@ -17,7 +17,15 @@ import { Component, Input } from '@angular/core';
   p {
     font-size: 12px;
     color: white;
-  }`],
+  }
+  @media (max-width: 600px) {
+        .small {
+            font-size: 12px;
+            padding: 0.3rem 0.5rem; 
+            border-radius: 14px;
+        }
+    }`
+  ],
     standalone: true
 })
 export class SmallButtonComponent {
