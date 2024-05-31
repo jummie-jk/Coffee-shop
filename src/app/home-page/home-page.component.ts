@@ -9,8 +9,6 @@ import { ICoffeeData } from '../shared/interfaces/coffee-page';
 import { CoffeeDetailsComponent } from '../coffee-details/coffee-details.component';
 import { CartService } from '../shared/services/cart.service';
 import { ToastrService } from 'ngx-toastr';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { ReactiveFormsModule } from '@angular/forms';
 
 
@@ -26,7 +24,6 @@ export class HomePageComponent {
   text: string = "Coffee"
   coffeeProducts = coffeeData;
   cart: ICoffeeData[] = [];
-  public Editor = ClassicEditor;
 
 
 

@@ -25,7 +25,6 @@ import { MessageService } from 'primeng/api';
 import { ToastrModule } from 'ngx-toastr';
 import { provideToastr } from 'ngx-toastr';
 import { CoffeeDetailsComponent } from './coffee-details/coffee-details.component';
-import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { Angular4PaystackModule } from "angular4-paystack";
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
