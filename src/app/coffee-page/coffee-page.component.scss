@@ -164,4 +164,67 @@ form {
     }
   }
 }
+@media (max-width: 1000px) {
+  .sec{
+    margin: 3.5rem 0;
+    .enjoy-coffee {
+      font-size: 25px;
+      text-transform: uppercase;
+      color: #432010;
+      padding: 1rem 0;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4rem;
+      margin-top: 2rem;
+    }
+  }
+}
+@media (max-width: 700px) {
+  .sec{
+    margin: 2rem 0;
+    .enjoy-coffee {
+      font-size: 20px;
+      padding: 1rem 0;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+  }
+}
+.flex-btw {
+  padding: 0 5rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-family: "Playfair Display", serif;
+  color: #432010;
+
+  .main-text {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    font-weight: bold;
+  }
+
+  .sub-main-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+  }
+
+  .sub-text {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+
+  .coffee-image {
+    width: 20rem;
+    height: auto;
+  }
+}
 }

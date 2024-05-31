@@ -1,50 +1,43 @@
 <app-navbar [style.background-color]="'#000'"></app-navbar>
 <section class="section">
-    <div class="cart-price-text">
-        <p class="cart-main-text">Carts</p>
-        <div>
-            <p class="cart-price-total"> Total Cart Price: {{ totalCartPrice | currency: "₦"}}</p>
-            <angular4-paystack
-            [paystackOptions]="options"
-            class="btn paystack-btn"
-            (paymentInit)="paymentInit()"
-            (onClose)="paymentFailed()"
-            (callback)="paymentSuccess($event)"
-          >
-            Pay with Paystack
-          </angular4-paystack>
-        </div>
-       
-    </div>
-    
-    <div class="products">
-        <li *ngFor="let cart of allCartProducts" >
-            <div class="">
-                <div class="product-details">
-                    <div>
-                        <img src={{cart.coffeeImage}} alt="coffee-image" class="product-image">
-                        <div>
-                            <small-button [buttonText]="'Remove from cart'" (click)="removeFromCart(cart.id)"></small-button>
-                        </div>
-                       
-                    </div>
-                   <div>
-                    <p class="coffee-name">{{cart.coffeeName}}</p>
-                    <p class="coffee-content">{{cart.coffeeContent}}</p>
-                   </div>
-                    <div>
-                        <p>{{cart.coffeePrice * cart.coffeeQuantity | currency: '₦'}}</p>
-                        <!-- <p>{{cart.id}}</p> -->
-                        <small-button [buttonText]="'-'"  (click)="decreaseQuantity(cart)"></small-button>
-                        <p>{{cart.coffeeQuantity}}</p>
-                        <small-button [buttonText]="'+'" (click)="increaseQuantity(cart)"></small-button>  
-                    </div>
-               </div>
-            </div>
-        </li>
-        
-    </div>
+  <div class="cart-price-text">
+    <p class="cart-main-text">Carts</p>
     <div>
-       
+      <!-- Display total car price and use angular currency pipe -->
+      <p class="cart-price-total"> Total Cart Price: {{ totalCartPrice | currency: "₦"}}</p>
+      <!-- Paystack for payment intgration -->
+      <angular4-paystack [paystackOptions]="options" class="btn paystack-btn" (paymentInit)="paymentInit()"
+        (onClose)="paymentFailed()" (callback)="paymentSuccess($event)">
+        Pay with Paystack
+      </angular4-paystack>
+    </div>
+  </div>
+<!-- All cart products -->
+  <div class="products">
+    <li *ngFor="let cart of allCartProducts">
+      <div class="">
+        <div class="product-details">
+          <div>
+            <img src={{cart.coffeeImage}} alt="coffee-image" class="product-image">
+            <div>
+              <small-button [buttonText]="'Remove from cart'" (click)="removeFromCart(cart.id)"></small-button>
+            </div>
+
+          </div>
+          <div>
+            <p class="coffee-name">{{cart.coffeeName}}</p>
+            <p class="coffee-content">{{cart.coffeeContent}}</p>
+          </div>
+          <div>
+            <p>{{cart.coffeePrice * cart.coffeeQuantity | currency: '₦'}}</p>
+            <small-button [buttonText]="'-'" (click)="decreaseQuantity(cart)"></small-button>
+            <p>{{cart.coffeeQuantity}}</p>
+            <small-button [buttonText]="'+'" (click)="increaseQuantity(cart)"></small-button>
+          </div>
+        </div>
       </div>
+    </li>
+  </div>
+  <div>
+  </div>
 </section>
