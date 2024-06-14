@@ -1,43 +1,54 @@
+$primary-color: #432010;
+$primary-color-dark: #707070;
+$input-border-color: #ccc;
+.flex-btw {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+@mixin input-styles {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid $input-border-color;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
 
-  $primary-color: #432010;
-  $primary-color-dark: #707070;
-  $input-border-color: #ccc;
-  
-  @mixin input-styles {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid $input-border-color;
-    border-radius: 5px;
-    box-sizing: border-box;
-    font-size: 16px;
-  }
-  @mixin flex-between {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  @mixin main-text {
-    font-size: 3rem;
-    padding-bottom: 1.5rem;
-    font-weight: bold;
-    color: $primary-color;
-  }
-  @mixin sub-text{
-    font-size: 22px;
-    padding-bottom: 1.5rem;
-    line-height: 34px;
-    color:  $primary-color-dark;
-  }
-  @mixin flex-center{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
+@mixin flex-between {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+@mixin main-text {
+  font-size: 3rem;
+  padding-bottom: 0.5rem;
+  color: $primary-color;
+  margin: 0;
+}
+
+@mixin sub-text {
+  font-size: 22px;
+  padding-bottom: 0.5rem;
+  color: $primary-color-dark;
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 26.4px;
+  letter-spacing: -0.02em;
+  font-family: "Lato", sans-serif;
+}
+
+@mixin flex-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 .main {
-  .home-page{
+  .home-page {
     background-image: url("../../assets/coffee_image.png");
     height: 100vh;
     width: 100%;
@@ -67,95 +78,158 @@
     .typewriter {
       overflow: hidden;
       white-space: nowrap;
-      animation:
-        typing 4s steps(50, end),
-        blink-caret .9s step-end infinite;
+      animation: typing 4s steps(50, end), blink-caret 0.9s step-end infinite;
 
       @keyframes typing {
         from {
-          width: 0
+          width: 0;
         }
 
         to {
-          width: 100%
+          width: 100%;
         }
       }
 
       @keyframes blink-caret {
-
         from,
         to {
-          border-color: transparent
+          border-color: transparent;
         }
 
         50% {
-          border-color: white
+          border-color: white;
         }
       }
     }
   }
 
-  .section{
-    margin: 2rem;
-    .coffee-text-mainn{
-        @include main-text; 
-    }
-    .coffee-text-sub{
-        @include sub-text;
-    }
-    .discover-section{
-        @include flex-between;
-    }
-    .different-section{
-        @include flex-center
-      }
-    .enjoy-section{
-        @include flex-center;
-        .products {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 4rem;
-            li{
+  .section {
+    margin: 3rem;
 
-                list-style: none;
-            }
-            .product-image {
-              border-radius: 15px 15px 0 0;
-              width: 240px;
-              height: auto;
-              object-fit: contain;
-              box-shadow: 4px 0px 4px 0px rgba(0, 0, 0, 0.1);
-              padding: 0;
-              margin: 0;
-            }
-            .product-details {
-              background-color: #FFF9F1;
-              text-align: center;
-              margin: 0;
-              padding: 1rem;
-            }
-            .coffee-name{
-              font-weight: bold;
-            }
-            .coffee-content{
-              margin: 0.5rem 0;
-            }
-      
-          } 
+    .coffee-cup {
+      max-width: 467px;
+      height: auto;
+      width: 100%;
+    }
+
+    .coffee-text-mainn {
+      @include main-text;
+    }
+
+    .coffee-text-sub {
+      @include sub-text;
+    }
+
+    .coffee-text-subb {
+      @include sub-text;
+      text-align: center;
+    }
+
+    .discover-section {
+      @include flex-between;
+    }
+
+    .different-section {
+      @include flex-center;
+      background-color: #fff9f1;
+      padding: 2rem 0;
+height: Hug (328px)px;
+gap: 32px;
+opacity: 0px;
+
+      .input {
+        width: 360px;
+        height: 48px;
+        padding: 12px 14px 12px 14px;
+        gap: 8px;
+        border-radius: 24px;
+        border: 1px 0px 0px 0px;
+        opacity: 0px;
+        border: 1px solid #d0d5dd;
+        margin: 0 0.5rem;
+      }
+      .subscribe-text {
+        font-family: Lato;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 30px;
+        letter-spacing: -0.02em;
+        text-align: center;
+        color: #595959;
+      }
+
+      .btn {
+        width: 139px;
+        height: 48px;
+        padding: 15px, 32px, 15px, 32px;
+        border-radius: 24px;
+        opacity: 0px;
+        background-color: #432010;
+        color: white;
+        font-family: Lato;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 18px;
+        letter-spacing: -0.02em;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        margin: 0 0.5rem;
+      }
+    }
+
+    .enjoy-section {
+      @include flex-center;
+      text-align: center;
+
+      .products {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 4rem;
+
+        li {
+          list-style: none;
+        }
+
+        .product-image {
+          border-radius: 15px 15px 0 0;
+          width: 240px;
+          height: auto;
+          object-fit: contain;
+          box-shadow: 4px 0px 4px 0px rgba(0, 0, 0, 0.1);
+          padding: 0;
+          margin: 0;
+        }
+
+        .product-details {
+          background-color: #fff9f1;
+          text-align: center;
+          margin: 0;
+          padding: 1rem;
+        }
+
+        .coffee-name {
+          font-weight: bold;
+        }
+
+        .coffee-content {
+          margin: 0.5rem 0;
+        }
+      }
     }
   }
-  .enjoy{
-    .blast-right{
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        align-items: flex-end;
+
+  .enjoy {
+    .blast-right {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-end;
     }
+  }
 }
-}
-
-
-
 
 //   /* Responsive Styling */
 //   @media (max-width: 1000px) {
@@ -175,7 +249,6 @@
 //         font-size: 10rem;
 //       }
 //     }
-
 
 //   }
 

@@ -1,11 +1,15 @@
 <!-- This is the page showing the coffee details (Calling it from the coffee page) -->
-<div class="">
+<div class="product-card">
   <img src={{coffee.coffeeImage}} alt="coffee-image" class="product-image">
   <div class="product-details">
     <p class="coffee-name">{{coffee.coffeeName}}</p>
     <p class="coffee-content">{{coffee.coffeeContent}}</p>
-    <p>{{coffee.coffeePrice | currency: '₦'}}</p>
+    <p class="coffee-price">{{coffee.coffeePrice | currency: '₦'}}</p>
     <!-- <small-button [buttonText]="'Order now!'"></small-button> -->
-    <small-button [buttonText]="'Add to cart'" (click)="buyCoffeeClicked(coffee)"></small-button>
+    <!-- <small-button [buttonText]="'Add to cart'" (click)="buyCoffeeClicked(coffee)"> <img src="./../assets/Icon.png" alt="icon"></small-button> -->
+    <button class="btn">
+      <img src="./../assets/Icon.png" alt="icon" class="cart-icon" (click)="buyCoffeeClicked(coffee)">
+      Add to cart
+  </button>
   </div>
 </div>
