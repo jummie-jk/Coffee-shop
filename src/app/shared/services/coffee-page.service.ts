@@ -10,7 +10,7 @@ import { ICartDetails, ICoffeeData } from "../interfaces/coffee-page";
 
 export class CoffeeServices{
     baseUrls: string = 'https://beanscene-coffeeshop-default-rtdb.firebaseio.com/coffeeProducts'
-    baseUrl: string = "http://localhost:5000"
+    baseUrl: string = "https://crud-website-q1gk.onrender.com"
     coffeeRef!: AngularFireList<ICoffeeData>;
 
     constructor(private httpClient: HttpClient) { }

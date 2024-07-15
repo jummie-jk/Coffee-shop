@@ -1,6 +1,28 @@
 .sec {
   // padding: 5rem;
   margin: 5rem 0;
+  .btn {
+    width: 210px;
+    height: 34px;
+    margin-top: 1rem;
+    padding: 8px 16px 8px 16px;
+    border-radius: 24px;
+    opacity: 0px;
+    background-color: #432010;
+    color: white;
+    font-family: Lato;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 18px;
+    letter-spacing: -0.02em;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    text-decoration: none;
+  }
 
   .productSection {
     text-align: center;

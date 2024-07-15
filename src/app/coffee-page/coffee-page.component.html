@@ -46,8 +46,8 @@
           <p class="coffee-name">{{coffee.coffeeName}}</p>
           <p class="coffee-content">{{coffee.coffeeContent}}</p>
           <p>₦{{coffee.coffeePrice}}</p>
-          <small-button [buttonText]="'Order now!'"></small-button>
-          <outlined-button [buttonText]="'Add to cart'" (click)="addToCart(coffee.id, 1)"></outlined-button>
+          <!-- <small-button [buttonText]="'Order now!'"></small-button> -->
+          <!-- <outlined-button [buttonText]="'Add to cart'" (click)="addToCart(coffee.id, 1)"></outlined-button> -->
         </div>
       </div>
     </div>
@@ -67,9 +67,13 @@
           <div>
             <small-button [buttonText]="'Edit'" (click)="openEditPopup(coffee)"></small-button>
             <delete-button [buttonText]="'Delete'" (click)="openDeleteModal()"></delete-button>
-            <outlined-button [buttonText]="'Add to cart'" (click)="addToCart(coffee._id, 1)"></outlined-button>
+            <!-- <outlined-button [buttonText]="'Add to cart'" (click)="addToCart(coffee._id, 1)"></outlined-button> -->
             <!-- <small-button [buttonText]="'Add To Cart'" (click)="addToCart(coffee.id)" ></small-button> -->
           </div>
+          <button class="btn">
+            <img src="./../assets/Icon.png" alt="icon" class="cart-icon" (click)="addToCart(coffee._id, 1)">
+            Add to cart
+        </button>
           <!-- <secondary-button [buttonText]="'Add coffee'" (click)="openPopup()"></secondary-button> -->
 
         </div>

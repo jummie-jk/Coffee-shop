@@ -232,10 +232,10 @@ onSubmit() {
     this.displayEditModal = "none"; 
   } 
   showSuccess() {
-    this.toastr.success('Congratulations, your coffee order was added sucessfully!', '');
+    this.toastr.success('Coffee order was added sucessfully!', '');
   }
   showEditSuccess() {
-    this.toastr.success('Congratulations, your changes has been added', '');
+    this.toastr.success('Product Updated', '');
   }
   showfailed() {
     this.toastr.error('Failed, please try again!', '');

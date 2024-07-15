@@ -14,14 +14,14 @@
       </angular4-paystack>
     </div>
   </div>
-  
+
   <!-- All cart products -->
   <div class="products">
     <li *ngFor="let cart of allCartProducts">
       <div class="">
         <div class="product-details">
           <div>
-            <img src="{{ cart.coffeeImage }}" alt="coffee-image" class="product-image" />
+            <img src='../../assets/coffee-a.png' alt="coffee-image" class="product-image" />
             <div>
               <small-button [buttonText]="'Remove from cart'" (click)="removeFromCart(cart.productId._id)">
               </small-button>
