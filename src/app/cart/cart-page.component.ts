@@ -92,7 +92,7 @@ export class CartComponent implements OnInit {
         total: number,
         cartItem: { productId: { price: string }; quantity: number }
       ) => {
-        const price = parseFloat(cartItem.productId.price);
+        const price = parseFloat(cartItem?.productId?.price);
         return total + price * cartItem.quantity;
       },
       0

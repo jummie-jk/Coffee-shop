@@ -30,16 +30,25 @@
     <img src="../../assets/coffee_blast_left.png" alt="">
     <section class="section">
         <div class="enjoy-section">
+            
             <div>
                 <p class="coffee-text-mainn center"> Enjoy a new blend of coffee style</p>
                 <p class="coffee-text-subb"> Explore all flavours of coffee with us. There is always a new cup worth experiencing</p>
             </div>
             <div>
+                <div class="filter">
+                    <p>Filters:</p>
+                    <outlined-button [buttonText]="'Cappucino'" (click)="filter= 'Cappucino'"></outlined-button>
+                    <outlined-button [buttonText]="'Latte'" (click)="filter= 'Latte'"></outlined-button>
+                    <outlined-button [buttonText]="'Macchiato'" (click)="filter= 'Macchiato'"></outlined-button>
+                    <outlined-button [buttonText]="'Espresso'" (click)="filter= 'Espresso'"></outlined-button>
+                    <outlined-button [buttonText]="'All'" (click)="filter= ''"></outlined-button>
+                  </div>
             <!-- Cofee Product card -->
             <!-- If there is a coffee product available display it and iterate through the product array -->
             <div class="product-div">
                 <div *ngIf="coffeeProducts" class="products">
-                    <li *ngFor="let coffee of coffeeProducts">
+                    <li *ngFor="let coffee of  getfilterProducts()">
                         <!-- Passing data from child component(coffee-details) -->
                         <app-coffee-details [coffee] ="coffee" (buy)="addToCart(coffee)"></app-coffee-details>
                     </li>

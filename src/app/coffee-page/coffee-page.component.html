@@ -18,40 +18,6 @@
     </div>
   </div>
 
-  <!-- Products section -->
-  <div class="productSection">
-    <img src="../../assets/coffee-seeds.png" alt class="coffee-seeds">
-    <div class="coffee-div">
-      <p class="enjoy-coffee">eNJOY a new blend of Coffee style</p>
-      <p>Explore all flavours of coffee with us. <br>
-        There is always a new cup worth experiencing</p>
-    </div>
-  </div>
-  <div class="filter">
-    <p>Filters:</p>
-    <outlined-button [buttonText]="'Cappucino'" (click)="filter= 'Cappucino'"></outlined-button>
-    <outlined-button [buttonText]="'Latte'" (click)="filter= 'Latte'"></outlined-button>
-    <outlined-button [buttonText]="'Macchiato'" (click)="filter= 'Macchiato'"></outlined-button>
-    <outlined-button [buttonText]="'Espresso'" (click)="filter= 'Espresso'"></outlined-button>
-    <outlined-button [buttonText]="'All'" (click)="filter= ''"></outlined-button>
-  </div>
-
-  <!-- Cofee Product card -->
-  <!-- If there is a coffee product available display it and iterate through the product array -->
-  <div class="product-div product-card">
-    <div *ngIf="coffeeProducts" class="products">
-      <div *ngFor="let coffee of  getfilterProducts()">
-        <img src={{coffee.coffeeImage}} alt="coffee-image" class="product-image">
-        <div class="product-details">
-          <p class="coffee-name">{{coffee.coffeeName}}</p>
-          <p class="coffee-content">{{coffee.coffeeContent}}</p>
-          <p>₦{{coffee.coffeePrice}}</p>
-          <!-- <small-button [buttonText]="'Order now!'"></small-button> -->
-          <!-- <outlined-button [buttonText]="'Add to cart'" (click)="addToCart(coffee.id, 1)"></outlined-button> -->
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- Coffee Products from the database -->
   <div class="product-div">
@@ -70,7 +36,7 @@
             <!-- <outlined-button [buttonText]="'Add to cart'" (click)="addToCart(coffee._id, 1)"></outlined-button> -->
             <!-- <small-button [buttonText]="'Add To Cart'" (click)="addToCart(coffee.id)" ></small-button> -->
           </div>
-          <button class="btn">
+          <button class="btns">
             <img src="./../assets/Icon.png" alt="icon" class="cart-icon" (click)="addToCart(coffee._id, 1)">
             Add to cart
         </button>
