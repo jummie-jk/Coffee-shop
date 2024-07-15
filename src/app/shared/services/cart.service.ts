@@ -25,14 +25,17 @@ export class CartService {
       console.log(`product ${product.productId} added to cart`)
     })
   }
-
+  removeCart(productId: number): Observable<any> {
+    const url = `${this.baseUrl}/cart/remove`;
+    return this.httpClient.post(url, { productId });
+  }
 
   getCart(){
     return this.httpClient.get(`${this.baseUrl}/cart/`)
   }
-  removeCart(id: number): Observable<any> {
-    return this.httpClient.delete(`${this.baseUrl}/${id}.json`)
-  }
+  // removeCart(id: number): Observable<any> {
+  //   return this.httpClient.delete(`${this.baseUrl}/cart/remove`)
+  // }
   removeProductFromCart(id: string): Observable<any> {
   return this.httpClient.delete(`https://coffee-shop-86d24.firebaseio.com/cartProducts/${id}`);
   }
