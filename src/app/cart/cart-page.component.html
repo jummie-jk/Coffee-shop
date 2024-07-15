@@ -4,7 +4,9 @@
     <p class="cart-main-text">Carts</p>
     <div>
       <!-- Display total car price and use angular currency pipe -->
-      <p class="cart-price-total"> Total Cart Price: {{ totalCartPrice | currency: "₦"}}</p>
+      <p class="cart-price-total">
+        Total Cart Price: {{ totalCartPrice | currency : "₦" }}
+      </p>
       <!-- Paystack for payment intgration -->
       <angular4-paystack [paystackOptions]="options" class="btn paystack-btn" (paymentInit)="paymentInit()"
         (onClose)="paymentFailed()" (callback)="paymentSuccess($event)">
@@ -12,32 +14,32 @@
       </angular4-paystack>
     </div>
   </div>
-<!-- All cart products -->
+  
+  <!-- All cart products -->
   <div class="products">
     <li *ngFor="let cart of allCartProducts">
       <div class="">
         <div class="product-details">
           <div>
-            <img src={{cart.coffeeImage}} alt="coffee-image" class="product-image">
+            <img src="{{ cart.coffeeImage }}" alt="coffee-image" class="product-image" />
             <div>
-              <small-button [buttonText]="'Remove from cart'" (click)="removeFromCart(cart.productId._id)"></small-button>
+              <small-button [buttonText]="'Remove from cart'" (click)="removeFromCart(cart.productId._id)">
+              </small-button>
             </div>
-
           </div>
           <div>
-            <p class="coffee-name">{{cart.productId.name}}</p>
-            <p class="coffee-content">{{cart.productId.description}}</p>
+            <p class="coffee-name">{{ cart.productId.name }}</p>
+            <p class="coffee-content">{{ cart.productId.description }}</p>
           </div>
           <div>
-            <p>{{cart.productId.price * cart.quantity | currency: '₦'}}</p>
+            <p>{{ cart.productId.price * cart.quantity | currency : "₦" }}</p>
             <small-button [buttonText]="'-'" (click)="decreaseQuantity(cart)"></small-button>
-            <p>{{cart.quantity}}</p>
+            <p>{{ cart.quantity }}</p>
             <small-button [buttonText]="'+'" (click)="increaseQuantity(cart)"></small-button>
           </div>
         </div>
       </div>
     </li>
   </div>
-  <div>
-  </div>
+  <div></div>
 </section>
