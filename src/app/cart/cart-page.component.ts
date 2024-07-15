@@ -8,6 +8,7 @@ import { ICoffeeData } from '../shared/interfaces/coffee-page';
 import { PaystackOptions } from 'angular4-paystack';
 import { Angular4PaystackModule } from 'angular4-paystack';
 import { coffeeData } from '../shared/data/coffee-data';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-cart-page',
@@ -43,7 +44,7 @@ export class CartComponent implements OnInit {
     currency: 'NGN',
   };
 
-  constructor(private router: Router, private cartService: CartService) {}
+  constructor(private router: Router, private cartService: CartService, private toastr: ToastrService) {}
 
   ngOnInit() {
     this.getAllCartProducts();
@@ -72,6 +73,7 @@ export class CartComponent implements OnInit {
         console.log('Response:', res);
         if (res.message === 'Product removed from cart') {
           console.log('Item deleted successfully.');
+          this.toastr.success('Product has been removed from cart!', '');
           this.getAllCartProducts(); // Refresh the list of cart products after deletion
         } else {
           console.log('Unexpected response from server:', res);
@@ -110,7 +112,7 @@ export class CartComponent implements OnInit {
     cart.quantity++;
     this.calculateTotalCartPrice();
   }
-  
+
   // Paystack Integration
   paymentInit() {
     console.log('Payment is Initialized');
