@@ -63,6 +63,7 @@ export class CartComponent implements OnInit {
       },
     });
   }
+
   // Remove from cart
   removeFromCart(productId: number) {
     console.log('Id:', productId);
@@ -81,23 +82,23 @@ export class CartComponent implements OnInit {
       },
     });
   }
+
   // Calculate the total cart price, convert it to a number
   calculateTotalCartPrice() {
     this.totalCartPrice = this.allCartProducts.reduce(
       (
         total: number,
-        cartItem: { productId :{price: string; }, quantity: number }
+        cartItem: { productId: { price: string }; quantity: number }
       ) => {
         const price = parseFloat(cartItem.productId.price);
         return total + price * cartItem.quantity;
-
       },
       0
     );
     console.log('total price:', this.totalCartPrice);
     this.options.amount = this.totalCartPrice * 100;
   }
-  
+
   // Increase and decrease quantity
   decreaseQuantity(cart: any) {
     if (cart.quantity > 1) {
@@ -109,6 +110,7 @@ export class CartComponent implements OnInit {
     cart.quantity++;
     this.calculateTotalCartPrice();
   }
+  
   // Paystack Integration
   paymentInit() {
     console.log('Payment is Initialized');
