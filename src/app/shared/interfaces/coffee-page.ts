@@ -6,3 +6,7 @@ export interface ICoffeeData {
     coffeePrice: number,
     coffeeQuantity: number
 }
+export interface ICartDetails{
+    productId: string,
+    quantity: number,
+}

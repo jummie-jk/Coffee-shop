@@ -2,39 +2,49 @@ import {HttpClient} from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/database';
-import { ICoffeeData } from "../interfaces/coffee-page";
+import { ICartDetails, ICoffeeData } from "../interfaces/coffee-page";
 
 @Injectable({
     providedIn: 'root',
 })
 
 export class CoffeeServices{
-    baseUrl: string = 'https://beanscene-coffeeshop-default-rtdb.firebaseio.com/coffeeProducts'
-    baseUrls: string = "http://localhost:3000"
+    baseUrls: string = 'https://beanscene-coffeeshop-default-rtdb.firebaseio.com/coffeeProducts'
+    baseUrl: string = "http://localhost:5000"
     coffeeRef!: AngularFireList<ICoffeeData>;
 
     constructor(private httpClient: HttpClient) { }
     // Service to perform CRUD )perations
     updateCoffee(id: number, data: any): Observable<any> {
-        const url = `${this.baseUrl}/${id}.json`;
+        const url = `${this.baseUrl}/products/update/${id}`;
         return this.httpClient.put(url, data);
       }
+      
 
     getCoffee(){
-        return this.httpClient.get(`${this.baseUrl}.json`)
+        return this.httpClient.get(`${this.baseUrl}/products`)
     }
 
     deleteCoffee(id: number): Observable<any> {
-        return this.httpClient.delete(`${this.baseUrl}/${id}.json`);
+        return this.httpClient.delete(`${this.baseUrl}/products/delete/${id}`);
     }
+
     removeCart(id: number): Observable<any> {
         return this.httpClient.delete(`${this.baseUrl}/${id}.json`)
       }
 
     addCoffee(data: any): Observable<any> {
-        return this.httpClient.post<any>(`${this.baseUrl}` , data);
+        return this.httpClient.post<any>(`${this.baseUrl}/products/create` , data);
     }
     // addToCart(data: any): Observable<any> {
     //     return this.httpClient.post<any>(`${this.baseUrl}/cartProducts` , data);
     // }
+
+    // addToCart(product: ICartDetails): Observable<any> {
+    //     return this.httpClient.post<any>(`${this.baseUrl}/cart/add`, product)
+    //   }
+
+      addToCart(product: { productId: string, quantity: number }): Observable<any> {
+        return this.httpClient.post(`${this.baseUrl}/cart/add`, product);
+      }
 }

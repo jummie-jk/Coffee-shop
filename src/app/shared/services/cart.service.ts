@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ICoffeeData } from '../interfaces/coffee-page';
+import { ICartDetails, ICoffeeData } from '../interfaces/coffee-page';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -8,8 +8,8 @@ import { Observable } from 'rxjs';
 })
 export class CartService {
   cart: ICoffeeData[] = []
-  // baseUrl: string = "http://localhost:3000"
-  baseUrl: string = 'https://beanscene-coffeeshop-default-rtdb.firebaseio.com/cartProducts'
+  baseUrl: string = "http://localhost:3000"
+  baseUrls: string = 'https://beanscene-coffeeshop-default-rtdb.firebaseio.com/cartProducts'
 
   constructor(private httpClient: HttpClient) { }
   
@@ -19,6 +19,13 @@ export class CartService {
       console.log(`product ${product.coffeeName} added to cart`)
     })
   }
+  addToCart(product: ICartDetails){
+    // this.cart.push(product);
+    this.httpClient.post(`${this.baseUrl}/cart/add`, product).subscribe(()=> {
+      console.log(`product ${product.productId} added to cart`)
+    })
+  }
+
 
   getCart(){
     return this.httpClient.get(`${this.baseUrl}.json`)

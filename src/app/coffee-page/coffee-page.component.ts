@@ -12,6 +12,7 @@ import { SecondaryButtonComponent } from '../components/buttons/secondary-button
 import { NavbarComponent } from '../components/navbar/navbar.component';
 import { MessageService } from 'primeng/api';
 import { ToastrService } from 'ngx-toastr';
+import { ICartDetails } from '../shared/interfaces/coffee-page';
 
 @Component({
     selector: 'app-coffee-page',
@@ -38,9 +39,19 @@ export class CoffeePageComponent {
   deleteCoffee: any;
   selectedCoffee: any;
   Id!: number;
+  cartDetails!: {
+    productId: string;
+    quantity: number;
+  };
   addCoffeeForm!: FormGroup;
   editForm!: FormGroup;
   currentItem = 'Television';
+  coffeeImages: string[] = [
+    '../../assets/coffee-a.png',
+    '../../assets/coffee-b.png',
+    '../../assets/coffee-c.png'
+    // Add more image paths as needed
+  ];
 
   @ViewChild('createModal') createModal: any;
   @ViewChild('editModal') editModal: any;  
@@ -52,15 +63,15 @@ export class CoffeePageComponent {
 
    ){
     this.addCoffeeForm = this.fb.group({
-      coffeeName: ['', Validators.required],
-      coffeeContent: ['' , Validators.required],
-      coffeePrice: ['' , Validators.required],
+      name: ['', Validators.required],
+      description: ['' , Validators.required],
+      price: ['' , Validators.required],
       coffeeImage: ['../../assets/coffee-a.png'],
     })
     this.editForm = this.fb.group({
-      coffeeName: ['', Validators.required],
-      coffeeContent: ['' , Validators.required],
-      coffeePrice: ['' , Validators.required],
+      name: ['', Validators.required],
+      description: ['' , Validators.required],
+      price: ['' , Validators.required],
       coffeeImage: ['../../assets/coffee-a.png'],
     });
   }
@@ -69,23 +80,20 @@ export class CoffeePageComponent {
     this.getAllCoffee();
   }
 
+
 // Filter products based on the product name
 // If filter is empty display all the products if not display items with the filtered name
   getfilterProducts(){
     return this.filter === '' ? this.coffeeProducts
     :this.coffeeProducts.filter((product) => product.coffeeName === this.filter)
-  
   }
+
 // Get all coffee
   getAllCoffee() {
     this.coffeeServices.getCoffee().subscribe({
       next: (res: any) => {
-        if (res && typeof res === 'object') { 
-          this.allCoffee = Object.values(res); 
-          console.log("All coffee data:", this.allCoffee);
-        } else {
-          console.error("Response is not an object:", res);
-        }
+        this.allCoffee = res.data;
+        console.log("All coffee data:", this.allCoffee);
       },
       error: (error) => {
         console.log("Error getting products:", error);
@@ -97,6 +105,7 @@ export class CoffeePageComponent {
 
 // Delete selected coffee by it Id
   deleteSelectedCoffee(Id: number){
+
     this.coffeeServices.deleteCoffee(Id).subscribe({
       next: (res) => {
         this.deleteCoffee = res;
@@ -106,7 +115,8 @@ export class CoffeePageComponent {
         this.showDeleted()
       },
       error: (error) => {
-        console.log("Error deleting", error)
+        console.log("Error deleting", error);
+         console.log(Id)
         this.showfailed()
       }
     })
@@ -116,16 +126,16 @@ openEditPopup(coffee: any) {
   this.selectedCoffee = coffee;
   this.displayEditModal = 'block';
   this.editForm.patchValue({
-    coffeeName: coffee.coffeeName,
-    coffeePrice: coffee.coffeePrice,
-    coffeeContent: coffee.coffeeContent
+    name: coffee.name,
+    price: coffee.price,
+    description: coffee.description
   });
 }
 // Submit the new details edited
 onSubmit() {
     if (this.editForm.valid) {
       const editedCoffeeData = this.editForm.value;
-      const coffeeId = this.selectedCoffee.id;
+      const coffeeId = this.selectedCoffee._id;
       this.coffeeServices.updateCoffee(coffeeId, editedCoffeeData).subscribe({
         next: (data) => {
           console.log('Coffee updated successfully:', data);
@@ -147,6 +157,7 @@ onSubmit() {
   AddCoffee(): void {
     if(this.addCoffeeForm.valid){
       const coffeeData = this.addCoffeeForm.value;
+      console.log("data", coffeeData);
       this.coffeeServices.addCoffee(coffeeData).subscribe({
         next: (res: any[]) => {
           // this.allCoffee = res;
@@ -164,6 +175,35 @@ onSubmit() {
       })
     }
   } 
+  // addToCart(productId: string, quantity: number) {
+  //   const product = this.cartDetails;
+  //   console.log("cart details", this.cartDetails)
+  //   this.coffeeServices.addToCart(product).subscribe(
+  //     () => {
+  //       console.log(`Product ${product.productId} added to cart`);
+  //     },
+  //     error => {
+  //       console.error('Error adding product to cart:', error);
+  //     }
+  //   );
+  // }
+  addToCart(productId: string, quantity = 1) {
+    const product = {
+      productId: productId,
+      quantity: quantity
+    };
+  
+    console.log("Adding to cart:", product);
+  
+    this.coffeeServices.addToCart(product).subscribe(
+      () => {
+        console.log(`Product ${productId} with quantity ${quantity} added to cart`);
+      },
+      error => {
+        console.error('Error adding product to cart:', error);
+      }
+    );
+  }
  
   // Modals
   displayCreateModal = "none";
@@ -200,5 +240,12 @@ onSubmit() {
   showDeleted() {
     this.toastr.warning('Coffee has been deleted!', '');
   }
+  // addToCart(product: ICartDetails){
+  //   // this.cart.push(product);
+  //   this.httpClient.post(`${this.baseUrl}/cart/add`, product).subscribe(()=> {
+  //     console.log(`product ${product.productId} added to cart`)
+  //   })
+  // }
+ 
 
 }

@@ -38,7 +38,7 @@
 
   <!-- Cofee Product card -->
   <!-- If there is a coffee product available display it and iterate through the product array -->
-  <div class="product-div">
+  <div class="product-div product-card">
     <div *ngIf="coffeeProducts" class="products">
       <div *ngFor="let coffee of  getfilterProducts()">
         <img src={{coffee.coffeeImage}} alt="coffee-image" class="product-image">
@@ -47,6 +47,7 @@
           <p class="coffee-content">{{coffee.coffeeContent}}</p>
           <p>₦{{coffee.coffeePrice}}</p>
           <small-button [buttonText]="'Order now!'"></small-button>
+          <outlined-button [buttonText]="'Add to cart'" (click)="addToCart(coffee.id, 1)"></outlined-button>
         </div>
       </div>
     </div>
@@ -54,18 +55,19 @@
 
   <!-- Coffee Products from the database -->
   <div class="product-div">
-    <p class="fakedb">Displaying coffee products from the fake database</p>
+    <p class="fakedb">Coffee Products</p>
     <secondary-button [buttonText]="'Add coffee'" (click)="openPopup()"></secondary-button>
     <div class="products">
       <div *ngFor="let coffee of  allCoffee">
-        <img src={{coffee.coffeeImage}} alt="coffee-image" class="product-image">
+        <img src='../../assets/coffee-a.png' alt="coffee-image" class="product-image">
         <div class="product-details">
-          <p class="coffee-name">{{coffee.coffeeName}}</p>
-          <p class="coffee-content">{{coffee.coffeeContent}}</p>
-          <p>₦{{coffee.coffeePrice}}</p>
+          <p class="coffee-name">{{coffee.name}}</p>
+          <p class="coffee-content">{{coffee.description}}</p>
+          <p>₦{{coffee.price}}</p>
           <div>
             <small-button [buttonText]="'Edit'" (click)="openEditPopup(coffee)"></small-button>
             <delete-button [buttonText]="'Delete'" (click)="openDeleteModal()"></delete-button>
+            <outlined-button [buttonText]="'Add to cart'" (click)="addToCart(coffee._id, 1)"></outlined-button>
             <!-- <small-button [buttonText]="'Add To Cart'" (click)="addToCart(coffee.id)" ></small-button> -->
           </div>
           <!-- <secondary-button [buttonText]="'Add coffee'" (click)="openPopup()"></secondary-button> -->
@@ -79,7 +81,7 @@
                 <div class="">
                   <p class="text-danger">Are you sure you want to delete this coffee</p>
                   <button type="button" class="btn btn-danger" (click)="closeDeleteModal()">Close</button>
-                  <delete-button [buttonText]="'Delete'" (click)="deleteSelectedCoffee(coffee.id)"></delete-button>
+                  <delete-button [buttonText]="'Delete'" (click)="deleteSelectedCoffee(coffee._id)"></delete-button>
                 </div>
               </div>
             </div>
@@ -101,9 +103,9 @@
           <div class="add-coffee-form">
             <p>Add New Coffee Order</p>
             <form [formGroup]="addCoffeeForm" (ngSubmit)="AddCoffee()">
-              <input type="text" formControlName="coffeeName" placeholder="Coffee Name" required>
-              <input type="text" formControlName="coffeeContent" placeholder="Coffee Content" required>
-              <input type="number" formControlName="coffeePrice" placeholder="Coffee Price" required>
+              <input type="text" formControlName="name" placeholder="Coffee Name" required>
+              <input type="text" formControlName="description" placeholder="Coffee Content" required>
+              <input type="number" formControlName="price" placeholder="Coffee Price" required>
               <button type="submit" class="submit-button" [disabled]="addCoffeeForm.invalid">Add Coffee</button>
             </form>
           </div>
@@ -130,15 +132,15 @@
               <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
                 <div>
                   <label>Name:</label>
-                  <input type="text" formControlName="coffeeName">
+                  <input type="text" formControlName="name">
                 </div>
                 <div>
                   <label>Price:</label>
-                  <input type="number" formControlName="coffeePrice">
+                  <input type="number" formControlName="price">
                 </div>
                 <div>
                   <label>Content:</label>
-                  <input type="text" formControlName="coffeeContent">
+                  <input type="text" formControlName="description">
                 </div>
                 <button type="submit">Save Changes</button>
               </form>
