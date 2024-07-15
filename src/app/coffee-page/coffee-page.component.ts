@@ -200,6 +200,9 @@ onSubmit() {
         console.log(`Product ${productId} with quantity ${quantity} added to cart`);
       },
       error => {
+        if (error.error.message === "Product already in cart") {
+          this.toastr.error('Product already in cart!', '');
+        }
         console.error('Error adding product to cart:', error);
       }
     );

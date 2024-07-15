@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class CartService {
   cart: ICoffeeData[] = []
-  baseUrl: string = "http://localhost:3000"
+  baseUrl: string = "http://localhost:5000"
   baseUrls: string = 'https://beanscene-coffeeshop-default-rtdb.firebaseio.com/cartProducts'
 
   constructor(private httpClient: HttpClient) { }
@@ -28,7 +28,7 @@ export class CartService {
 
 
   getCart(){
-    return this.httpClient.get(`${this.baseUrl}.json`)
+    return this.httpClient.get(`${this.baseUrl}/cart/`)
   }
   removeCart(id: number): Observable<any> {
     return this.httpClient.delete(`${this.baseUrl}/${id}.json`)
